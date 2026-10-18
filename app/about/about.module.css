@@ -1,0 +1,207 @@
+.body {
+  padding-block: clamp(2.5rem, 5vw, 4rem) var(--section-padding);
+  background: var(--color-background);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  max-width: 56rem;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.introTitle {
+  margin: 0;
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+}
+
+.introProse {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.introProse p {
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+
+.sectionTitle {
+  margin: 0 0 var(--space-5);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+/* Principles -------------------------------------------------------------- */
+
+.principles {
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.principleGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+}
+
+.principle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: clamp(1.3rem, 2.5vw, 1.6rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.principleIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--color-primary-soft), var(--color-cyan-soft));
+  color: var(--color-primary);
+}
+
+.principleTitle {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.principleDetail {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+/* Process ----------------------------------------------------------------- */
+
+.processSection {
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.processList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.processItem {
+  position: relative;
+  padding-left: 3.4rem;
+  padding-bottom: var(--space-5);
+  border-left: 2px solid var(--color-border);
+  margin-left: 1.15rem;
+}
+
+.processItem:last-child {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+
+.processNumber {
+  position: absolute;
+  left: -1.15rem;
+  top: 0;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  border: 3px solid var(--color-background);
+}
+
+.processBody {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.processIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  margin-top: 0.15rem;
+}
+
+.processTitle {
+  margin: 0 0 0.3rem;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.processDetail {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+  max-width: 42rem;
+}
+
+/* Honest note ------------------------------------------------------------- */
+
+.honest {
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.honestTitle {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.honestText {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  max-width: 50rem;
+}
+
+@media (min-width: 48rem) {
+  .principleGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .principleGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

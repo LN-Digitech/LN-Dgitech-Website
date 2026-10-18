@@ -1,0 +1,114 @@
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 44rem;
+}
+
+.p {
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+
+.h2 {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.h3 {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.ul,
+.ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.ul .li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.65rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.ol {
+  counter-reset: article-counter;
+}
+
+.ol .li {
+  counter-increment: article-counter;
+}
+
+.ol .li::before {
+  content: counter(article-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.quote {
+  margin: 0;
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.quoteText {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.attribution {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: var(--text-sm);
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+
+.note {
+  margin: 0;
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-warning-soft);
+  border: 1px solid #fedf89;
+  border-radius: var(--radius-sm);
+}
+
+.noteText {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: #713f12;
+}
