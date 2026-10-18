@@ -1,0 +1,43 @@
+.body {
+  padding-block: clamp(2.5rem, 5vw, 4rem) var(--section-padding);
+  background: var(--color-background);
+}
+
+.content {
+  max-width: 46rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.effective {
+  margin: 0;
+  padding: 0.7rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.paragraph {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
