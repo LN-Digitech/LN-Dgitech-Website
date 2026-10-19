@@ -3,7 +3,7 @@ import type { PackageComparisonRow, PricingPackage } from "@/types";
 /**
  * Service packages and pricing.
  *
- * All prices are EDITABLE here — no component hardcodes a price.
+ * All prices are EDITABLE here, no component hardcodes a price.
  * Figures are proposed starting ranges in Indian rupees, not contractual
  * offers. Final scope and pricing are confirmed in a signed proposal.
  *
@@ -14,15 +14,15 @@ export const packages: PricingPackage[] = [
   {
     id: "launch",
     name: "LN Launch",
-    priceLabel: "₹9,999 – ₹19,999",
+    priceLabel: "₹9,999 to ₹19,999",
     priceFrom: 9999,
     billing: "per month",
     audience: "Startups, freelancers and small businesses building their foundations",
     summary:
       "A focused monthly engagement covering the essentials: a defined set of foundational SEO or digital marketing work, a steady supply of social creatives, and a clear monthly report. Scope is agreed up front so you know exactly what is being delivered each month.",
     features: [
-      "One agreed foundational service track — SEO foundations or core digital marketing activities",
-      "8–12 social creatives per month, when included in the selected scope",
+      "One agreed foundational service track: SEO foundations or core digital marketing activities",
+      "8 to 12 social creatives per month, when included in the selected scope",
       "Basic content support for key pages",
       "Limited website maintenance for an existing website",
       "Monthly summary report with completed work and next-month plan",
@@ -41,7 +41,7 @@ export const packages: PricingPackage[] = [
   {
     id: "growth",
     name: "LN Growth",
-    priceLabel: "₹24,999 – ₹39,999",
+    priceLabel: "₹24,999 to ₹39,999",
     priceFrom: 24999,
     billing: "per month",
     audience: "Growing businesses investing in consistent organic and social presence",
@@ -50,8 +50,8 @@ export const packages: PricingPackage[] = [
     features: [
       "Ongoing SEO: technical maintenance, on-page improvements and content structure",
       "Foundational AEO, GEO and AAO work where relevant to your business",
-      "12–20 social creatives per month",
-      "2–4 content pieces per month, written to agreed briefs",
+      "12 to 20 social creatives per month",
+      "2 to 4 content pieces per month, written to agreed briefs",
       "Social media support including scheduling and community monitoring within agreed hours",
       "Monthly reporting covering organic performance, content output and social results",
       "Monthly strategy call",
@@ -69,7 +69,7 @@ export const packages: PricingPackage[] = [
   {
     id: "scale",
     name: "LN Scale",
-    priceLabel: "₹49,999 – ₹89,999",
+    priceLabel: "₹49,999 to ₹89,999",
     priceFrom: 49999,
     billing: "per month",
     audience: "Established brands and e-commerce businesses with mature channels",
@@ -78,7 +78,7 @@ export const packages: PricingPackage[] = [
     features: [
       "Advanced SEO and content strategy tied to commercial priorities",
       "AEO, GEO and defined AAO retrieval testing with documented results",
-      "20–30 social creatives per month",
+      "20 to 30 social creatives per month",
       "Agreed short-form video editing scope",
       "Website or e-commerce optimisation work against a prioritised backlog",
       "Conversion tracking setup and reporting against agreed goals",
@@ -116,7 +116,7 @@ export const packages: PricingPackage[] = [
       "Paid media budget (billed directly by the advertising platform)",
       "Premium AI tool credits and third-party software subscriptions",
       "Hosting, domain and platform fees",
-      "Unlimited deliverables — production volumes are defined in the signed scope",
+      "Unlimited deliverables (production volumes are defined in the signed scope)",
       "Application taxes, unless separately invoiced",
     ],
     ctaLabel: "Discuss Enterprise Scope",
@@ -126,7 +126,7 @@ export const packages: PricingPackage[] = [
 
 /**
  * Feature comparison across packages.
- * Use `null` when a feature does not apply to a tier — the table renders "—".
+ * Use `null` when a feature does not apply to a tier, the table renders "Not included".
  */
 export const packageComparison: PackageComparisonRow[] = [
   {
@@ -141,15 +141,15 @@ export const packageComparison: PackageComparisonRow[] = [
   {
     feature: "Social creatives per month",
     values: {
-      launch: "8–12",
-      growth: "12–20",
-      scale: "20–30",
+      launch: "8 to 12",
+      growth: "12 to 20",
+      scale: "20 to 30",
       enterprise: "Scoped to requirement",
     },
   },
   {
     feature: "Content pieces per month",
-    values: { launch: "Basic support", growth: "2–4", scale: "Scoped", enterprise: "Scoped" },
+    values: { launch: "Basic support", growth: "2 to 4", scale: "Scoped", enterprise: "Scoped" },
   },
   {
     feature: "Short-form video editing",
@@ -201,7 +201,7 @@ export const packageComparison: PackageComparisonRow[] = [
 ];
 
 export const packageDisclaimer =
-  "Prices shown are proposed monthly starting ranges in Indian rupees, not final contractual offers. Final scope, deliverables and pricing are confirmed in a signed proposal. Ad spend, third-party software, hosting, premium AI credits and applicable taxes are billed separately unless explicitly included. Deliverables depend on the agreed scope — not every service is included in every tier.";
+  "Prices shown are proposed monthly starting ranges in Indian rupees, not final contractual offers. Final scope, deliverables and pricing are confirmed in a signed proposal. Ad spend, third-party software, hosting, premium AI credits and applicable taxes are billed separately unless explicitly included. Deliverables depend on the agreed scope. Not every service is included in every tier.";
 
 export function getPackageById(id: string): PricingPackage | undefined {
   return packages.find((pkg) => pkg.id === id);

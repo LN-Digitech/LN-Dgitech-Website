@@ -111,7 +111,7 @@ export function Header() {
       data-mobile-open={mobileOpen || undefined}
     >
       <Container wide className={styles.container}>
-        <Link href="/" className={styles.logo} aria-label={`${siteConfig.name} — home`}>
+        <Link href="/" className={styles.logo} aria-label={`${siteConfig.name} home`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={siteConfig.logo.src}

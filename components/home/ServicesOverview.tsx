@@ -18,7 +18,7 @@ export function ServicesOverview() {
         <SectionHeading
           eyebrow="What we do"
           title="Seven disciplines. One accountable team."
-          description="Each engagement draws on whichever of these your business actually needs — not a fixed bundle. Every service below has its own scope, process and honest limitations."
+          description="Each engagement draws on whichever of these your business actually needs, not a fixed bundle. Every service below has its own scope, process and honest limitations."
           actions={
             <Link href="/services" className={styles.allLink}>
               All services

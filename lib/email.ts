@@ -3,15 +3,14 @@ import type { ContactFormValues } from "@/lib/validation";
 /**
  * Contact-form email delivery via the Resend HTTP API.
  *
- * Resend is used because it needs no SDK — a single authenticated POST —
- * which keeps the dependency surface small. To use a different provider,
+ * Resend is used because it needs no SDK, a single authenticated POST, * which keeps the dependency surface small. To use a different provider,
  * replace the implementation of `sendContactNotification` only.
  *
  * Required environment variables (see .env.example):
- *   RESEND_API_KEY             — server-only API key
- *   CONTACT_NOTIFICATION_EMAIL — inbox that receives inquiries
- *   CONTACT_FROM_EMAIL         — optional; must be on a verified domain
- *   CONTACT_CC_EMAILS          — optional; comma-separated extra recipients
+ *   RESEND_API_KEY           , server-only API key
+ *   CONTACT_NOTIFICATION_EMAIL, inbox that receives inquiries
+ *   CONTACT_FROM_EMAIL       , optional; must be on a verified domain
+ *   CONTACT_CC_EMAILS        , optional; comma-separated extra recipients
  *
  * Development behaviour:
  *   Set CONTACT_DEV_STUB=true to validate and log success without sending.
@@ -42,12 +41,12 @@ function buildEmailBody(values: ContactFormValues): string {
   const rows: Array<[string, string]> = [
     ["Name", values.fullName],
     ["Email", values.email],
-    ["Phone", values.phone || "—"],
-    ["Company", values.company || "—"],
+    ["Phone", values.phone || "Not provided"],
+    ["Company", values.company || "Not provided"],
     ["Service", values.service],
     ["Budget", values.budget],
     ["Timeline", values.timeline],
-    ["Package", values.packageId || "—"],
+    ["Package", values.packageId || "Not provided"],
   ];
 
   const tableRows = rows
@@ -68,16 +67,16 @@ function buildEmailBody(values: ContactFormValues): string {
 
 function textBody(values: ContactFormValues): string {
   return [
-    "New project inquiry — LN Digitech website",
+    "New project inquiry | LN Digitech website",
     "",
     `Name: ${values.fullName}`,
     `Email: ${values.email}`,
-    `Phone: ${values.phone || "—"}`,
-    `Company: ${values.company || "—"}`,
+    `Phone: ${values.phone || "Not provided"}`,
+    `Company: ${values.company || "Not provided"}`,
     `Service: ${values.service}`,
     `Budget: ${values.budget}`,
     `Timeline: ${values.timeline}`,
-    `Package: ${values.packageId || "—"}`,
+    `Package: ${values.packageId || "Not provided"}`,
     "",
     "Project details:",
     values.message,
@@ -95,7 +94,7 @@ export async function sendContactNotification(
   if (!apiKey || !toAddress) {
     if (isDev && devStub) {
       console.warn(
-        "[contact] CONTACT_DEV_STUB=true — inquiry validated but NOT delivered (missing RESEND_API_KEY or CONTACT_NOTIFICATION_EMAIL).",
+        "[contact] CONTACT_DEV_STUB=true, inquiry validated but NOT delivered (missing RESEND_API_KEY or CONTACT_NOTIFICATION_EMAIL).",
       );
       return { delivered: false, stubbed: true };
     }
@@ -107,7 +106,7 @@ export async function sendContactNotification(
   }
 
   if (isDev && devStub) {
-    console.warn("[contact] CONTACT_DEV_STUB=true — inquiry validated but NOT delivered.");
+    console.warn("[contact] CONTACT_DEV_STUB=true, inquiry validated but NOT delivered.");
     return { delivered: false, stubbed: true };
   }
 
@@ -124,7 +123,7 @@ export async function sendContactNotification(
     from: `LN Digitech Website <${fromAddress}>`,
     to: [toAddress],
     reply_to: values.email,
-    subject: `New inquiry: ${values.service} — ${values.fullName}`,
+    subject: `New inquiry: ${values.service} | ${values.fullName}`,
     html: buildEmailBody(values),
     text: textBody(values),
     ...(ccList.length > 0 ? { cc: ccList } : {}),
@@ -142,7 +141,7 @@ export async function sendContactNotification(
     });
 
     if (!response.ok) {
-      // Log only the status — never the response body or form contents.
+      // Log only the status, never the response body or form contents.
       console.error(`[contact] Email provider returned ${response.status}.`);
       return {
         delivered: false,

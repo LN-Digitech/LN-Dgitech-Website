@@ -135,7 +135,7 @@ export function ContactForm() {
     return (
       <div className={styles.success} role="status" aria-live="polite">
         <CheckCircle2 size={28} aria-hidden="true" className={styles.successIcon} />
-        <h3 className={styles.successTitle}>Thank you — your inquiry has been received.</h3>
+        <h3 className={styles.successTitle}>Thank you. Your inquiry has been received.</h3>
         <p className={styles.successText}>
           We review every inquiry personally and typically respond within one to two business
           days. If your request is time-sensitive, mention it in a follow-up email.
@@ -345,7 +345,7 @@ export function ContactForm() {
             <option value="">No preference yet</option>
             {packages.map((pkg) => (
               <option key={pkg.id} value={pkg.id}>
-                {pkg.name} — {pkg.priceLabel}
+                {pkg.name}, {pkg.priceLabel}
               </option>
             ))}
           </select>
@@ -380,7 +380,7 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Honeypot — hidden from real users, tempting to bots. */}
+        {/* Honeypot, hidden from real users, tempting to bots. */}
         <div className={styles.honeypot} aria-hidden="true">
           <label htmlFor="website">Website</label>
           <input

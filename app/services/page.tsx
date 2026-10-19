@@ -9,7 +9,7 @@ import { getServicesSorted, serviceCategories } from "@/data/services";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Digital Services — SEO, AEO, GEO, AAO, Design, Development & AI",
+  title: "Digital Services | SEO, AEO, GEO, AAO, Design, Development & AI",
   description:
     "Explore LN Digitech's services: SEO, AEO, GEO and Assistive Agent Optimization, brand design, web, app and software development, e-commerce, social media, content, consulting and AI media production.",
   path: "/services",

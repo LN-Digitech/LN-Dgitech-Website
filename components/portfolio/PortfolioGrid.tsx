@@ -23,8 +23,7 @@ interface PortfolioGridProps {
 /**
  * Filterable project grid.
  *
- * Projects are marked as concept studies where they are not client work —
- * see data/projects.ts. Filtering is a client-side enhancement over
+ * Projects are marked as concept studies where they are not client work, * see data/projects.ts. Filtering is a client-side enhancement over
  * server-rendered content.
  */
 export function PortfolioGrid({ projects }: PortfolioGridProps) {

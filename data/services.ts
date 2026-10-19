@@ -56,7 +56,7 @@ export const services: Service[] = [
     process: [
       { step: "Audit", detail: "Crawl the site, review analytics and search-console data, and identify the highest-impact constraints." },
       { step: "Plan", detail: "Agree a topic map, technical backlog and success metrics with your team before work begins." },
-      { step: "Implement", detail: "Ship fixes in priority order — technical corrections first, then content and internal linking." },
+      { step: "Implement", detail: "Ship fixes in priority order: technical corrections first, then content and internal linking." },
       { step: "Measure", detail: "Track rankings, qualified organic sessions and conversions against the agreed baseline." },
       { step: "Refine", detail: "Re-prioritise each month based on what the data actually shows." },
     ],
@@ -91,7 +91,7 @@ export const services: Service[] = [
       {
         question: "Do you need access to our accounts?",
         answer:
-          "For useful measurement we need read access to Google Search Console and your analytics platform. Access requests are made through official invite flows — we never ask for passwords.",
+          "For useful measurement we need read access to Google Search Console and your analytics platform. Access requests are made through official invite flows. We never ask for passwords.",
       },
     ],
     related: ["aeo", "geo", "content-writing", "website-development"],
@@ -108,7 +108,7 @@ export const services: Service[] = [
     summary:
       "Structuring your content so answer engines can extract accurate, attributable answers to the questions your customers ask.",
     description:
-      "Answer Engine Optimization focuses on a specific outcome: when someone asks a question in an answer-focused interface — Google's AI features, Bing Copilot, Perplexity, voice assistants, or similar tools — the information drawn should be accurate and, where relevant, attributed to you. The practical work overlaps with good SEO and good technical writing. It means publishing clear definitions, answering real questions in full sentences near the top of relevant sections, using consistent entity information across your site and third-party profiles, and marking up content with structured data where it genuinely applies. AEO is not a replacement for SEO; it extends the same principles to interfaces that synthesise answers rather than list links.",
+      "Answer Engine Optimization focuses on a specific outcome: when someone asks a question in an answer-focused interface (Google's AI features, Bing Copilot, Perplexity, voice assistants, or similar tools) the information drawn should be accurate and, where relevant, attributed to you. The practical work overlaps with good SEO and good technical writing. It means publishing clear definitions, answering real questions in full sentences near the top of relevant sections, using consistent entity information across your site and third-party profiles, and marking up content with structured data where it genuinely applies. AEO is not a replacement for SEO; it extends the same principles to interfaces that synthesise answers rather than list links.",
     problems: [
       "Your brand is cited inconsistently, or not at all, when customers ask AI tools questions in your category.",
       "Product and service information is spread across PDFs, images and inconsistent page structures that engines cannot parse.",
@@ -147,7 +147,7 @@ export const services: Service[] = [
       {
         question: "Is AEO different from SEO?",
         answer:
-          "They overlap heavily. SEO optimises for ranked lists of links; AEO optimises for interfaces that synthesise an answer. The underlying requirements — clear content, consistent entities, valid markup, technical access — are shared, so AEO work usually strengthens SEO as well.",
+          "They overlap heavily. SEO optimises for ranked lists of links; AEO optimises for interfaces that synthesise an answer. The underlying requirements (clear content, consistent entities, valid markup, technical access) are shared, so AEO work usually strengthens SEO as well.",
       },
       {
         question: "How do you measure AEO results?",
@@ -157,7 +157,7 @@ export const services: Service[] = [
       {
         question: "Do I need schema markup for AEO?",
         answer:
-          "Structured data helps engines parse your content reliably, and we recommend it where it matches visible content. It is one factor among several — clear writing and consistent business information matter just as much.",
+          "Structured data helps engines parse your content reliably, and we recommend it where it matches visible content. It is one factor among several. Clear writing and consistent business information matter just as much.",
       },
       {
         question: "Will AEO replace my SEO budget?",
@@ -218,7 +218,7 @@ export const services: Service[] = [
       {
         question: "Is GEO just another name for SEO?",
         answer:
-          "No. SEO targets ranked results. GEO targets the sources generative systems draw on when composing an answer. The disciplines share technical foundations but differ in what they optimise for — authority and citability versus position and click-through.",
+          "No. SEO targets ranked results. GEO targets the sources generative systems draw on when composing an answer. The disciplines share technical foundations but differ in what they optimise for: authority and citability versus position and click-through.",
       },
       {
         question: "Do you write the original content yourselves?",
@@ -250,7 +250,7 @@ export const services: Service[] = [
     summary:
       "Making your business information discoverable, accessible and unambiguous for AI assistants and agent-driven experiences.",
     description:
-      "Assistive Agent Optimization (AAO) is a discipline LN Digitech defines explicitly, because the term is used loosely across the industry. In our practice it means improving how reliably AI-assisted and agent-driven experiences can discover, retrieve, interpret and act on your business information. Assistive agents — AI assistants, shopping agents, booking tools, research copilots and similar systems — need structured, machine-legible, consistently described information to be useful. If your pricing logic is only in a PDF, your booking rules only exist in prose, your product attributes are inconsistent, or your site blocks the crawlers these systems use, the agent will work around you or fail. AAO closes those gaps. It draws on structured information design, accessibility, technical SEO and careful content writing, but the goal is specific: an agent should be able to answer questions about your business accurately and, where you permit it, complete an action on your behalf.",
+      "Assistive Agent Optimization (AAO) is a discipline LN Digitech defines explicitly, because the term is used loosely across the industry. In our practice it means improving how reliably AI-assisted and agent-driven experiences can discover, retrieve, interpret and act on your business information. Assistive agents (AI assistants, shopping agents, booking tools, research copilots and similar systems) need structured, machine-legible, consistently described information to be useful. If your pricing logic is only in a PDF, your booking rules only exist in prose, your product attributes are inconsistent, or your site blocks the crawlers these systems use, the agent will work around you or fail. AAO closes those gaps. It draws on structured information design, accessibility, technical SEO and careful content writing, but the goal is specific: an agent should be able to answer questions about your business accurately and, where you permit it, complete an action on your behalf.",
     problems: [
       "Assistive tools give customers wrong answers about your pricing, availability, policies or coverage.",
       "Key business rules exist only in prose, PDFs or images that agents cannot reliably interpret.",
@@ -270,7 +270,7 @@ export const services: Service[] = [
       { step: "Inventory", detail: "Catalogue every fact an agent might need about your business and where each one currently lives." },
       { step: "Structure", detail: "Express policies, pricing logic, availability and attributes in unambiguous, machine-legible formats." },
       { step: "Verify access", detail: "Check that crawlers and APIs used by supported agent platforms can reach and render your content." },
-      { step: "Test", detail: "Run documented task scenarios — price lookups, availability checks, policy questions — and record results." },
+      { step: "Test", detail: "Run documented task scenarios (price lookups, availability checks, policy questions) and record results." },
       { step: "Report", detail: "Deliver a written record of what succeeded, what failed and what to fix next." },
     ],
     suitableFor: [
@@ -289,7 +289,7 @@ export const services: Service[] = [
       {
         question: "Is AEO the same as AAO?",
         answer:
-          "No. AEO focuses on answer extraction — getting a correct answer surfaced. AAO focuses on whether an agent can discover, interpret and act on your business information at all. They share tooling but target different failure modes.",
+          "No. AEO focuses on answer extraction: getting a correct answer surfaced. AAO focuses on whether an agent can discover, interpret and act on your business information at all. They share tooling but target different failure modes.",
       },
       {
         question: "Do you guarantee an assistant will recommend my business?",
@@ -323,7 +323,7 @@ export const services: Service[] = [
     description:
       "Brand identity work at LN Digitech starts with decisions, not decoration. Before drawing anything we establish how your business should be positioned, who it needs to appeal to, and what it competes against visually. From there we build a practical identity system: a logo with defined variants and clear-space rules, a colour palette with specified contrast pairings, a type scale, iconography direction, and templates for the collateral you actually produce. The deliverable is not a folder of files. It is a system your team can apply without asking us for permission every time.",
     problems: [
-      "The logo works in one size and breaks everywhere else — no variants, no clear-space rules, no usage guidance.",
+      "The logo works in one size and breaks everywhere else: no variants, no clear-space rules, no usage guidance.",
       "Different team members use different colours, fonts and templates, so the brand reads inconsistently.",
       "Collateral is produced from scratch each time, which is slow and produces uneven quality.",
       "The visual identity no longer matches how the business positions itself.",
@@ -370,7 +370,7 @@ export const services: Service[] = [
       {
         question: "Can you work with our existing logo?",
         answer:
-          "Yes. Many engagements are consolidation rather than replacement — cleaning up an existing mark, defining variants, and building the guidelines and templates that were never created.",
+          "Yes. Many engagements are consolidation rather than replacement: cleaning up an existing mark, defining variants, and building the guidelines and templates that were never created.",
       },
       {
         question: "Do you handle printing?",
@@ -390,9 +390,9 @@ export const services: Service[] = [
     order: 6,
     accent: "blue",
     summary:
-      "Fast, accessible, maintainable websites — designed and built with clean architecture, real performance budgets and long-term support in mind.",
+      "Fast, accessible, maintainable websites designed and built with clean architecture, real performance budgets and long-term support in mind.",
     description:
-      "We design and build websites that hold up: fast on mid-range mobile connections, accessible to keyboard and screen-reader users, easy for your team to update, and structured so search engines can index them properly. Most builds use Next.js with TypeScript and a component-based architecture, though we choose the stack based on your team's ability to maintain it — a site your marketing team cannot update is a liability, not an asset. Every engagement defines scope in writing: page count, features, content migration, integrations, performance targets and what ongoing maintenance covers.",
+      "We design and build websites that hold up: fast on mid-range mobile connections, accessible to keyboard and screen-reader users, easy for your team to update, and structured so search engines can index them properly. Most builds use Next.js with TypeScript and a component-based architecture, though we choose the stack based on your team's ability to maintain it: a site your marketing team cannot update is a liability, not an asset. Every engagement defines scope in writing: page count, features, content migration, integrations, performance targets and what ongoing maintenance covers.",
     problems: [
       "The current website is slow, difficult to update, or fails basic accessibility checks.",
       "A redesign has been discussed repeatedly but never scoped properly, so it never starts.",
@@ -406,7 +406,7 @@ export const services: Service[] = [
       "Performance budget agreed in advance, with Core Web Vitals measured before and after launch",
       "Accessibility review against WCAG 2.2 AA principles, with a written summary of findings",
       "On-page SEO foundations: metadata, sitemap, robots directives, structured data, internal linking",
-      "Content management approach chosen and documented — headless CMS, markdown, or structured data files",
+      "Content management approach chosen and documented: headless CMS, markdown, or structured data files",
       "Deployment setup, analytics configuration and a launch checklist",
     ],
     process: [
@@ -437,12 +437,12 @@ export const services: Service[] = [
       {
         question: "What technology do you use?",
         answer:
-          "Most builds use Next.js with TypeScript and CSS Modules, which gives strong performance and a codebase many agencies can maintain. If your team is more comfortable with a CMS-based stack such as WordPress, we will recommend that instead — maintainability on your side matters more than our preference.",
+          "Most builds use Next.js with TypeScript and CSS Modules, which gives strong performance and a codebase many agencies can maintain. If your team is more comfortable with a CMS-based stack such as WordPress, we will recommend that instead. Maintainability on your side matters more than our preference.",
       },
       {
         question: "Will we be able to update the site ourselves?",
         answer:
-          "Yes, provided content editing is part of scope. We choose the editing approach based on who updates the site and how often — from a structured headless CMS to simple markdown files — and train your team during handover.",
+          "Yes, provided content editing is part of scope. We choose the editing approach based on who updates the site and how often (from a structured headless CMS to simple markdown files) and train your team during handover.",
       },
       {
         question: "Do you provide hosting?",
@@ -497,7 +497,7 @@ export const services: Service[] = [
       "App store review is controlled by Apple and Google. Approval timing cannot be guaranteed.",
       "Feature scope directly determines cost and timeline. Adding features mid-build is re-quoted, not absorbed.",
       "Third-party SDKs and OS updates can introduce issues outside our control; maintenance agreements cover response, not prevention.",
-      "We do not publish apps under our own developer accounts — releases go to your accounts, which you own.",
+      "We do not publish apps under our own developer accounts. Releases go to your accounts, which you own.",
     ],
     faqs: [
       {
@@ -534,7 +534,7 @@ export const services: Service[] = [
     summary:
       "Internal tools, dashboards, integrations and product software built around how your business actually operates.",
     description:
-      "Custom software is worth building when off-the-shelf tools force your team into workarounds that cost more than the software saves. We build internal tools, customer portals, dashboards, workflow automation and integrations between systems that were never designed to talk to each other. The process begins with understanding the workflow as it actually runs — including the spreadsheet everyone is afraid to open — not the workflow described in a requirements document. From there we define a scoped first release, build it, and iterate against real usage rather than speculative feature lists.",
+      "Custom software is worth building when off-the-shelf tools force your team into workarounds that cost more than the software saves. We build internal tools, customer portals, dashboards, workflow automation and integrations between systems that were never designed to talk to each other. The process begins with understanding the workflow as it actually runs, including the spreadsheet everyone is afraid to open, not the workflow described in a requirements document. From there we define a scoped first release, build it, and iterate against real usage rather than speculative feature lists.",
     problems: [
       "Critical workflows live in spreadsheets, email threads and manual re-entry between systems.",
       "Off-the-shelf tools cover eighty percent of the need, and the missing twenty percent costs real hours every week.",
@@ -606,7 +606,7 @@ export const services: Service[] = [
     summary:
       "Editorial strategy and writing that explains what you do clearly enough for buyers, search engines and AI systems to understand it.",
     description:
-      "Content only works when it answers a real question a real buyer has. We build editorial strategies around the questions your customers ask during research and purchase, then write the material that answers them — service pages, guides, documentation, comparison content, case-study structures and thought-leadership pieces. Every piece is reviewed for factual accuracy against information you provide. We do not publish invented statistics, fabricated case studies or claims we cannot support. If your team has subject-matter expertise, our job is to extract it, structure it and write it in language buyers understand.",
+      "Content only works when it answers a real question a real buyer has. We build editorial strategies around the questions your customers ask during research and purchase, then write the material that answers them: service pages, guides, documentation, comparison content, case-study structures and thought-leadership pieces. Every piece is reviewed for factual accuracy against information you provide. We do not publish invented statistics, fabricated case studies or claims we cannot support. If your team has subject-matter expertise, our job is to extract it, structure it and write it in language buyers understand.",
     problems: [
       "Website copy describes what you do in general terms but never explains how, for whom, or with what result.",
       "Content is published inconsistently because there is no strategy behind what gets written.",
@@ -650,7 +650,7 @@ export const services: Service[] = [
       {
         question: "How much input do you need from our team?",
         answer:
-          "Usually one subject-matter expert available for a short interview per major piece, plus review time. The better we can extract real expertise, the more useful the content becomes — generic writing helps no one.",
+          "Usually one subject-matter expert available for a short interview per major piece, plus review time. The better we can extract real expertise, the more useful the content becomes. Generic writing helps no one.",
       },
       {
         question: "Can you write in our tone of voice?",
@@ -675,15 +675,15 @@ export const services: Service[] = [
     order: 10,
     accent: "navy",
     summary:
-      "Online stores built and improved for the full purchase path — catalogue, checkout, performance, analytics and ongoing optimisation.",
+      "Online stores built and improved for the full purchase path: catalogue, checkout, performance, analytics and ongoing optimisation.",
     description:
-      "E-commerce work at LN Digitech covers both ends of the lifecycle: building stores that handle real catalogue size and real payment flow requirements, and improving existing stores where conversion is leaking. Build engagements choose the platform based on your catalogue size, team capability and operational requirements — Shopify, WooCommerce, or a custom headless build when justified. Optimisation engagements start with measurement: where visitors drop out, what breaks on mobile, which product pages fail to earn organic traffic, and where checkout friction causes abandonment. We fix the highest-impact issues first and measure the effect rather than redesigning everything at once.",
+      "E-commerce work at LN Digitech covers both ends of the lifecycle: building stores that handle real catalogue size and real payment flow requirements, and improving existing stores where conversion is leaking. Build engagements choose the platform based on your catalogue size, team capability and operational requirements: Shopify, WooCommerce, or a custom headless build when justified. Optimisation engagements start with measurement: where visitors drop out, what breaks on mobile, which product pages fail to earn organic traffic, and where checkout friction causes abandonment. We fix the highest-impact issues first and measure the effect rather than redesigning everything at once.",
     problems: [
       "The store works but conversion is low and nobody can point to a specific cause.",
       "Mobile checkout is slow or confusing, and mobile abandonment is high.",
       "The catalogue has outgrown the platform or the way products are structured on it.",
       "Product pages earn no organic traffic because descriptions are thin or duplicated from suppliers.",
-      "A new store needs building properly the first time — catalogue structure, payment, shipping, tax and analytics included.",
+      "A new store needs building properly the first time: catalogue structure, payment, shipping, tax and analytics included.",
     ],
     deliverables: [
       "Store build or restructure with defined catalogue architecture, collections and product data model",
@@ -708,7 +708,7 @@ export const services: Service[] = [
       "Brands whose product pages earn little organic visibility despite real demand",
     ],
     limitations: [
-      "Conversion improvements are measured against your baseline. External factors — seasonality, ad spend, pricing — affect results and are outside our control.",
+      "Conversion improvements are measured against your baseline. External factors (seasonality, ad spend, pricing) affect results and are outside our control.",
       "Platform fees, payment gateway charges, app subscriptions and shipping costs are separate unless explicitly included.",
       "Payment and tax configuration depends on your business registration and jurisdiction. We implement your agreed configuration; we do not provide tax advice.",
       "Sales figures are never guaranteed. We commit to a measured process, not a revenue projection.",
@@ -749,7 +749,7 @@ export const services: Service[] = [
     summary:
       "Social strategy, creative production and channel management tied to business outcomes rather than posting volume.",
     description:
-      "Social media management at LN Digitech is scoped around what the channels are actually for. For most businesses that means a defined role for each platform — discovery, credibility, customer service, or retargeting audience building — rather than posting the same content everywhere on a fixed calendar. We produce the creative assets, write the copy, manage publishing, and report on what the channels contributed to the business, not just how many people saw a post. Paid social campaigns, where used, are scoped with media budget separate from management fees so the economics stay honest.",
+      "Social media management at LN Digitech is scoped around what the channels are actually for. For most businesses that means a defined role for each platform (discovery, credibility, customer service, or retargeting audience building) rather than posting the same content everywhere on a fixed calendar. We produce the creative assets, write the copy, manage publishing, and report on what the channels contributed to the business, not just how many people saw a post. Paid social campaigns, where used, are scoped with media budget separate from management fees so the economics stay honest.",
     problems: [
       "Posting happens irregularly because nobody owns the calendar or the creative production.",
       "Content is published but nothing connects social activity to enquiries, sign-ups or sales.",
@@ -818,9 +818,9 @@ export const services: Service[] = [
     order: 12,
     accent: "navy",
     summary:
-      "Independent advice on technology choices, digital strategy and vendor decisions — scoped, written and free of sales pressure.",
+      "Independent advice on technology choices, digital strategy and vendor decisions: scoped, written and free of sales pressure.",
     description:
-      "Consulting engagements exist for decisions that are too important to make from a vendor pitch. We advise on technology selection, platform migrations, agency-versus-in-house economics, build-versus-buy questions, and digital strategy for businesses that need a clear position before committing budget. Deliverables are written documents with reasoning, alternatives considered and a recommendation — not slideware. We have no financial interest in which platform you choose or which vendor you hire, which is the point.",
+      "Consulting engagements exist for decisions that are too important to make from a vendor pitch. We advise on technology selection, platform migrations, agency-versus-in-house economics, build-versus-buy questions, and digital strategy for businesses that need a clear position before committing budget. Deliverables are written documents with reasoning, alternatives considered and a recommendation, not slideware. We have no financial interest in which platform you choose or which vendor you hire, which is the point.",
     problems: [
       "A significant technology decision is pending and several vendors are each recommending their own solution.",
       "An agency relationship is under review and you need an independent assessment of the work being delivered.",
@@ -864,7 +864,7 @@ export const services: Service[] = [
       {
         question: "Do you implement what you recommend?",
         answer:
-          "We can, and many engagements continue into implementation. However the consulting deliverable stands on its own — you are free to implement with any qualified partner, and the document is written so they can.",
+          "We can, and many engagements continue into implementation. However the consulting deliverable stands on its own. You are free to implement with any qualified partner, and the document is written so they can.",
       },
       {
         question: "Are you biased toward any particular technology?",
@@ -891,7 +891,7 @@ export const services: Service[] = [
     summary:
       "AI-assisted image and video production for marketing, with human direction, editing and honest disclosure of what was generated.",
     description:
-      "AI generation tools can produce striking visual material at a fraction of traditional production cost — with conditions. Generated output needs human direction, curation, editing and disclosure to be usable in professional marketing. At LN Digitech we use AI generation as a production technique under art direction, not as a substitute for judgement. Typical work includes concept imagery for campaigns, product visualisation where photography is impractical, motion graphics and short-form video with AI-assisted frames, and background or environment generation for photography that was actually shot. Every deliverable is disclosed as AI-assisted where relevant, and we do not generate photorealistic images of real people without documented consent.",
+      "AI generation tools can produce striking visual material at a fraction of traditional production cost, with conditions. Generated output needs human direction, curation, editing and disclosure to be usable in professional marketing. At LN Digitech we use AI generation as a production technique under art direction, not as a substitute for judgement. Typical work includes concept imagery for campaigns, product visualisation where photography is impractical, motion graphics and short-form video with AI-assisted frames, and background or environment generation for photography that was actually shot. Every deliverable is disclosed as AI-assisted where relevant, and we do not generate photorealistic images of real people without documented consent.",
     problems: [
       "Campaign visuals are needed at a volume and speed that traditional photography cannot match on budget.",
       "Product photography is impractical for the catalogue size or the number of variants involved.",
@@ -901,7 +901,7 @@ export const services: Service[] = [
     ],
     deliverables: [
       "Art-directed generation with defined style, palette and composition parameters before production begins",
-      "Curated final selects — every delivered image is chosen and edited, not raw tool output",
+      "Curated final selects: every delivered image is chosen and edited, not raw tool output",
       "Post-production: colour, composition, retouching and composite work on generated frames",
       "Short-form video production with AI-assisted frames, editing, captions and platform-specific formats",
       "Written disclosure of which assets are AI-assisted and which are photographically captured",

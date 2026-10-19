@@ -29,9 +29,9 @@ export const serviceOptions = [
 
 export const budgetOptions = [
   "Under ₹25,000",
-  "₹25,000 – ₹50,000",
-  "₹50,000 – ₹1,00,000",
-  "₹1,00,000 – ₹3,00,000",
+  "₹25,000 to ₹50,000",
+  "₹50,000 to ₹1,00,000",
+  "₹1,00,000 to ₹3,00,000",
   "Above ₹3,00,000",
   "Not sure yet",
 ] as const;
@@ -39,8 +39,8 @@ export const budgetOptions = [
 export const timelineOptions = [
   "As soon as possible",
   "Within 1 month",
-  "1 – 3 months",
-  "3 – 6 months",
+  "1 to 3 months",
+  "3 to 6 months",
   "Exploring options",
 ] as const;
 
@@ -84,7 +84,7 @@ export const contactFormSchema = z.object({
   consent: z.literal(true, {
     message: "You must agree to the privacy policy before submitting.",
   }),
-  /** Honeypot field — must remain empty. Bots that fill it are discarded
+  /** Honeypot field, must remain empty. Bots that fill it are discarded
    *  silently by the API route. */
   website: z.string().max(200).optional().or(z.literal("")),
 });

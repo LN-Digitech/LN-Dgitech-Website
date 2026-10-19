@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import styles from "./Footer.module.css";
-import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site";
 import { getServicesSorted } from "@/data/services";
 
@@ -35,10 +34,10 @@ export function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <Container wide>
+      <div className={styles.inner}>
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <Link href="/" className={styles.logoLink} aria-label={`${siteConfig.name} — home`}>
+            <Link href="/" className={styles.logoLink} aria-label={`${siteConfig.name} home`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={siteConfig.logo.srcLight}
@@ -52,7 +51,7 @@ export function Footer() {
             <p className={styles.intro}>
               LN Digitech is a full-service digital agency working across search, creative,
               engineering, commerce and AI-assisted production. We help businesses build
-              brands that hold up — technically, creatively and commercially.
+              brands that hold up, technically, creatively and commercially.
             </p>
             {hasContact ? (
               <ul className={styles.contactList}>
@@ -89,7 +88,7 @@ export function Footer() {
 
           <nav aria-label="Footer services" className={styles.column}>
             <h2 className={styles.columnTitle}>Services</h2>
-            <ul className={styles.linkList}>
+            <ul className={`${styles.linkList} ${styles.linkListSplit}`}>
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link href={`/services/${service.slug}`} className={styles.link}>
@@ -148,7 +147,7 @@ export function Footer() {
             ))}
           </ul>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

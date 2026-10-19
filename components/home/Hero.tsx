@@ -9,7 +9,7 @@ import { siteConfig } from "@/data/site";
  *
  * Visual identity: a structured "system diagram" composition built from
  * brand-coloured geometry rather than a stock gradient blob. The composition
- * is decorative (aria-hidden) and CSS-only — no client JS, no layout shift.
+ * is decorative (aria-hidden) and CSS-only, no client JS, no layout shift.
  */
 export function Hero() {
   return (
@@ -89,7 +89,7 @@ export function Hero() {
               <div className={styles.statusRow}>
                 <span className={styles.statusDot} />
                 <span className={styles.statusText}>
-                  {siteConfig.name} — {siteConfig.tagline}
+                  {siteConfig.name}: {siteConfig.tagline}
                 </span>
               </div>
             </div>

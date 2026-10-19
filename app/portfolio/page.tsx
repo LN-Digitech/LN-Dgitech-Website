@@ -7,7 +7,7 @@ import { projects } from "@/data/projects";
 import { buildPageMetadata, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Portfolio — Concept Studies & Selected Work",
+  title: "Portfolio | Concept Studies & Selected Work",
   description:
     "Explore LN Digitech's portfolio: concept studies and selected work across e-commerce, websites, brand identity, software, digital marketing and AI-assisted media production.",
   path: "/portfolio",

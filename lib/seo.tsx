@@ -75,7 +75,7 @@ export function buildPageMetadata({
 /* JSON-LD structured data                                                    */
 /* -------------------------------------------------------------------------- */
 
-/** Base organisation entity — used sitewide with consistent information. */
+/** Base organisation entity, used sitewide with consistent information. */
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",

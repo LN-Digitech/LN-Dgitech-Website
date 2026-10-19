@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/Badge";
 import { packages, packageDisclaimer } from "@/data/packages";
 
 /**
- * Homepage pricing preview — four package cards linking to /packages.
+ * Homepage pricing preview, four package cards linking to /packages.
  * Prices and features come from data/packages.ts so they can be edited in
  * one place.
  */
@@ -18,7 +18,7 @@ export function PricingPreview() {
         <SectionHeading
           eyebrow="Service packages"
           title="A starting shape, sized to your stage."
-          description="Packages give us a shared starting point for scope conversations. Every engagement is confirmed in a written proposal — nothing here is a fixed, unbendable box."
+          description="Packages give us a shared starting point for scope conversations. Every engagement is confirmed in a written proposal. Nothing here is a fixed, unbendable box."
           align="center"
           actions={
             <Link href="/packages" className={styles.allLink}>
@@ -58,7 +58,7 @@ export function PricingPreview() {
                 <Link
                   href={`/contact?package=${pkg.id}`}
                   className={styles.cta}
-                  aria-label={`${pkg.ctaLabel} — ${pkg.name}`}
+                  aria-label={`${pkg.ctaLabel}: ${pkg.name}`}
                 >
                   {pkg.ctaLabel}
                 </Link>

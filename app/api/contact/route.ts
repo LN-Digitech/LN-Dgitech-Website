@@ -102,7 +102,7 @@ export async function POST(request: Request) {
 
   // Honeypot triggered: pretend success, deliver nothing.
   if (parsed.data.website) {
-    console.warn("[contact] Honeypot triggered — submission discarded.");
+    console.warn("[contact] Honeypot triggered, submission discarded.");
     return NextResponse.json({ ok: true });
   }
 
