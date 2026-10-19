@@ -58,7 +58,7 @@ npm run build
 npm start
 ```
 
-Deploys cleanly to Vercel, Netlify or any Node host. Set every environment variable above in the host's dashboard. After the first production domain is live, update `NEXT_PUBLIC_SITE_URL` — canonical URLs, the sitemap and structured data all derive from it.
+Deploys cleanly to Vercel, Netlify or any Node host. Netlify builds are configured by `netlify.toml` (Node 24). Set every environment variable above in the host's dashboard. After the first production domain is live, update `NEXT_PUBLIC_SITE_URL` — canonical URLs, the sitemap and structured data all derive from it.
 
 ---
 
