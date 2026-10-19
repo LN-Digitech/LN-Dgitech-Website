@@ -116,8 +116,8 @@ export function Header() {
           <img
             src={siteConfig.logo.src}
             alt={siteConfig.logo.alt}
-            width={200}
-            height={45}
+            width={siteConfig.logo.width}
+            height={siteConfig.logo.height}
             className={styles.logoImage}
           />
         </Link>
