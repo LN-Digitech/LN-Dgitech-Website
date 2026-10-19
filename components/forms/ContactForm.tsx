@@ -10,12 +10,15 @@ import {
   contactFormSchema,
   serviceOptions,
   timelineOptions,
-  type ContactApiResponse,
 } from "@/lib/validation";
-import { packages } from "@/data/packages";
+import { getPackageById, packages } from "@/data/packages";
+import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 type FieldErrors = Partial<Record<string, string>>;
+
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
 
 const initialValues = {
   fullName: "",
@@ -28,15 +31,25 @@ const initialValues = {
   packageId: "",
   message: "",
   consent: false,
-  website: "", // honeypot
+  botcheck: false, // Web3Forms honeypot checkbox
 };
 
+/** Response shape documented at https://docs.web3forms.com/getting-started/api-reference */
+interface Web3FormsResponse {
+  success?: boolean;
+  message?: string;
+  body?: { message?: string };
+  error?: string;
+}
+
 /**
- * Contact form with client-side pre-validation, server-side Zod validation,
- * honeypot spam defence and honest error reporting.
+ * Contact form with client-side Zod validation and real asynchronous
+ * submission to Web3Forms (https://api.web3forms.com/submit).
  *
- * The form NEVER reports success without a confirmed `ok: true` response
- * from the API. Server failures are surfaced to the user.
+ * The form NEVER reports success without a confirmed `success: true`
+ * response from Web3Forms. Failures are surfaced to the user and their
+ * entered data is preserved. Web3Forms uses the submitted `email` field
+ * as the reply-to address, so replies go to the visitor.
  *
  * Wrapped in a Suspense boundary by the page because useSearchParams
  * requires it during static rendering.
@@ -58,7 +71,6 @@ export function ContactForm() {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [serverError, setServerError] = useState<string | null>(null);
-  const [stubbed, setStubbed] = useState(false);
 
   function updateField(field: keyof typeof initialValues, value: string | boolean) {
     setValues((current) => ({ ...current, [field]: value }));
@@ -74,7 +86,14 @@ export function ContactForm() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setServerError(null);
-    setStubbed(false);
+
+    // Honeypot filled: pretend success and deliver nothing, so bots cannot
+    // tell they were filtered. Web3Forms also discards `botcheck` hits.
+    if (values.botcheck) {
+      setValues(initialValues);
+      setStatus("success");
+      return;
+    }
 
     const parsed = contactFormSchema.safeParse(values);
     if (!parsed.success) {
@@ -93,40 +112,68 @@ export function ContactForm() {
       return;
     }
 
+    if (!ACCESS_KEY) {
+      // Misconfigured build: never pretend the inquiry was delivered.
+      setServerError(
+        `The contact form is not configured yet. Please email us directly at ${siteConfig.contact.email}.`,
+      );
+      return;
+    }
+
+    const selectedPackage = getPackageById(parsed.data.packageId ?? "");
+
     setStatus("submitting");
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed.data),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: `New ${parsed.data.service} inquiry from ${parsed.data.fullName}`,
+          name: parsed.data.fullName,
+          email: parsed.data.email,
+          phone: parsed.data.phone ?? "",
+          company: parsed.data.company ?? "",
+          service: parsed.data.service,
+          budget: parsed.data.budget,
+          timeline: parsed.data.timeline,
+          package: selectedPackage ? selectedPackage.name : "No preference yet",
+          message: parsed.data.message,
+          privacy_consent: "yes",
+          botcheck: false,
+        }),
       });
 
-      const data = (await response.json()) as ContactApiResponse & { stubbed?: boolean };
-
-      if (!response.ok || !data.ok) {
+      if (response.status === 429) {
         setStatus("idle");
         setServerError(
-          "fieldErrors" in data && data.fieldErrors
-            ? "Some fields need attention. Please review the highlighted fields."
-            : (data as { error?: string }).error ||
-              "Something went wrong submitting your inquiry. Please try again or email us directly.",
+          "Too many submissions from your connection. Please wait a few minutes and try again.",
         );
-        if ("fieldErrors" in data && data.fieldErrors) {
-          const nextErrors: FieldErrors = {};
-          for (const [field, messages] of Object.entries(data.fieldErrors)) {
-            if (messages && messages[0]) nextErrors[field] = messages[0];
-          }
-          setErrors(nextErrors);
-        }
         return;
       }
 
-      setStubbed(Boolean(data.stubbed));
-      setStatus("success");
+      let data: Web3FormsResponse | null = null;
+      try {
+        data = (await response.json()) as Web3FormsResponse;
+      } catch {
+        // Non-JSON response (e.g. a proxy error page): treated as failure below.
+      }
+
+      if (response.ok && data?.success) {
+        setValues(initialValues);
+        setStatus("success");
+        return;
+      }
+
+      setStatus("idle");
+      setServerError("We couldn't submit your inquiry. Please try again.");
     } catch {
       setStatus("idle");
       setServerError(
-        "We could not reach the server. Please check your connection and try again, or email us directly.",
+        "We couldn't reach the submission service. Please check your connection and try again.",
       );
     }
   }
@@ -140,12 +187,6 @@ export function ContactForm() {
           We review every inquiry personally and typically respond within one to two business
           days. If your request is time-sensitive, mention it in a follow-up email.
         </p>
-        {stubbed ? (
-          <p className={styles.stubNote}>
-            Development mode: this inquiry was validated successfully but not delivered,
-            because email is not configured on this server. See README.md for setup.
-          </p>
-        ) : null}
       </div>
     );
   }
@@ -380,17 +421,16 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Honeypot, hidden from real users, tempting to bots. */}
+        {/* Web3Forms honeypot, hidden from real users, tempting to bots. */}
         <div className={styles.honeypot} aria-hidden="true">
-          <label htmlFor="website">Website</label>
           <input
-            id="website"
-            name="website"
-            type="text"
+            id="botcheck"
+            name="botcheck"
+            type="checkbox"
             tabIndex={-1}
             autoComplete="off"
-            value={values.website}
-            onChange={(e) => updateField("website", e.target.value)}
+            checked={values.botcheck}
+            onChange={(e) => updateField("botcheck", e.target.checked)}
           />
         </div>
 
@@ -424,9 +464,13 @@ export function ContactForm() {
         </div>
       </div>
 
+      <p className="visually-hidden" role="status" aria-live="polite">
+        {status === "submitting" ? "Sending inquiry…" : ""}
+      </p>
+
       <Button type="submit" size="lg" loading={status === "submitting"} className={styles.submit}>
         <Send size={17} aria-hidden="true" style={{ marginRight: "0.45rem" }} />
-        {status === "submitting" ? "Sending…" : "Send inquiry"}
+        {status === "submitting" ? "Sending inquiry…" : "Send inquiry"}
       </Button>
     </form>
   );

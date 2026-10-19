@@ -29,7 +29,7 @@ const sections = [
   {
     heading: "Email delivery",
     paragraphs: [
-      "Contact-form submissions are delivered to our team through a third-party email delivery provider (currently Resend). Your submission data is transmitted to that provider for the purpose of delivering the notification email. Their handling of data is governed by their own privacy policy.",
+      "Contact-form submissions are sent through a third-party form service (currently Web3Forms), which forwards the submission to our team by email. Your submission data is transmitted to that provider for the purpose of delivering your inquiry. Their handling of data is governed by their own privacy policy.",
       "We do not add you to any mailing list as a result of contacting us. If we ever offer a newsletter, subscription will be separate, explicit and reversible.",
     ],
   },
