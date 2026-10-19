@@ -28,21 +28,18 @@ Copy-Item .env.example .env.local
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Yes (production) | Canonical origin for canonical URLs, sitemap, robots and Open Graph. No trailing slash. |
-| `RESEND_API_KEY` | For real email delivery | Resend API key (server-only). |
-| `CONTACT_NOTIFICATION_EMAIL` | For real email delivery | Inbox that receives inquiries. |
-| `CONTACT_FROM_EMAIL` | Optional | From address; must be on a verified Resend domain. Defaults to `onboarding@resend.dev`. |
-| `CONTACT_CC_EMAILS` | Optional | Comma-separated extra recipients (max 5). |
-| `CONTACT_DEV_STUB` | Optional | `true` = validate and report success **without** sending email. Useful before Resend is set up. The UI labels these responses as stubbed. |
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | Yes (for the contact form) | Web3Forms Access Key (browser-side; see below). |
 
-### Email provider setup (Resend)
+### Contact form delivery (Web3Forms)
 
-1. Create an account at [resend.com](https://resend.com).
-2. Verify a sending domain (or use the test domain for development).
-3. Create an API key → set `RESEND_API_KEY`.
-4. Set `CONTACT_NOTIFICATION_EMAIL` to the inbox that should receive inquiries.
-5. If you skip this, the contact form still validates, but submissions return an honest 502 failure — **the form never claims success when delivery fails.**
+The contact form submits directly from the browser to [Web3Forms](https://web3forms.com) (https://api.web3forms.com/submit), which forwards inquiries to the team inbox by email. Server-side API calls to Web3Forms require a paid plan with IP whitelisting, so no custom server endpoint is used.
 
-To swap providers later, replace only `sendContactNotification` in `lib/email.ts`.
+1. Create a free account at [web3forms.com](https://web3forms.com).
+2. Copy the Access Key from the dashboard → set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`.
+3. Set the recipient inbox under **Settings → Email** in the Web3Forms dashboard (the visitor's address is used as the reply-to, so replies reach the inquirer).
+4. If the key is missing, the form validates but reports an honest configuration error — **it never claims success when delivery is not configured.**
+
+The access key is designed for client-side use and is not a secret server credential, but it must still never be hardcoded into source control. Spam is mitigated with the Web3Forms `botcheck` honeypot field; hCaptcha / Turnstile can be added later from the Web3Forms dashboard if spam becomes a problem.
 
 ## Development
 
@@ -94,7 +91,6 @@ app/
   about/  blog/[slug]/  contact/  packages/  portfolio/
   privacy-policy/  terms/
   services/  services/[slug]/
-  api/contact/route.ts  Contact endpoint (Zod + honeypot + rate limit)
 
 components/
   layout/    Header (dropdown + mobile nav), Footer, AnnouncementBar
@@ -115,8 +111,7 @@ data/
   process.ts    Process steps + differentiators
 
 lib/
-  validation.ts  Contact form Zod schema (shared client/server)
-  email.ts       Resend delivery
+  validation.ts  Contact form Zod schema (client-side validation)
   seo.tsx        Metadata builders + JSON-LD helpers
   utils.ts       INR/date formatting, URL helpers
 

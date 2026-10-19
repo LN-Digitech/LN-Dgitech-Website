@@ -3,9 +3,10 @@ import { z } from "zod";
 /**
  * Contact form validation.
  *
- * The same schema validates on the client (for fast feedback) and on the
- * server (authoritatively, via app/api/contact/route.ts). Never rely on the
- * client-side check alone.
+ * The schema runs on the client before any request is sent to Web3Forms
+ * (components/forms/ContactForm.tsx). Submissions go directly from the
+ * browser to https://api.web3forms.com/submit, so this check is the
+ * authoritative gate before data leaves the page.
  */
 
 const PHONE_REGEX = /^[+\d][\d\s\-()]{6,19}$/;
@@ -84,23 +85,10 @@ export const contactFormSchema = z.object({
   consent: z.literal(true, {
     message: "You must agree to the privacy policy before submitting.",
   }),
-  /** Honeypot field, must remain empty. Bots that fill it are discarded
-   *  silently by the API route. */
-  website: z.string().max(200).optional().or(z.literal("")),
+  /** Web3Forms honeypot (must be an unchecked checkbox named `botcheck`).
+   *  Must remain false; the form silently drops submissions that set it. */
+  botcheck: z.boolean(),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 export type ContactFormField = keyof ContactFormValues;
-
-/** Shape returned by the API so the client can map errors onto fields. */
-export interface ContactApiError {
-  ok: false;
-  error: string;
-  fieldErrors?: Record<string, string[]>;
-}
-
-export interface ContactApiSuccess {
-  ok: true;
-}
-
-export type ContactApiResponse = ContactApiSuccess | ContactApiError;
