@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { processSteps } from "@/data/process";
 
 /**
- * "How we work" — responsive process timeline.
+ * "How we work", responsive process timeline.
  * Renders as a vertical timeline on small screens and a connected grid on
  * large screens. Pure markup and CSS; no client JS.
  */

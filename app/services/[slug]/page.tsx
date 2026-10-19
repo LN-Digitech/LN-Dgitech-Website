@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: ServiceDetailPageProps) {
   const service = getServiceBySlug(slug);
   if (!service) return {};
   return buildPageMetadata({
-    title: `${service.name} — ${service.category}`,
+    title: `${service.name}, ${service.category}`,
     description: service.summary,
     path: `/services/${slug}`,
   });

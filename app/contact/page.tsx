@@ -8,14 +8,14 @@ import { siteConfig } from "@/data/site";
 import { buildPageMetadata, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Contact — Start a Project with LN Digitech",
+  title: "Contact | Start a Project with LN Digitech",
   description:
-    "Tell LN Digitech about your project. Share your goals, budget range and timeline, and we will respond with honest recommendations — whether or not that includes hiring us.",
+    "Tell LN Digitech about your project. Share your goals, budget range and timeline, and we will respond with honest recommendations, whether or not that includes hiring us.",
   path: "/contact",
 });
 
 const whatToExpect = [
-  "We read every inquiry personally — no autoresponders with a sales sequence attached.",
+  "We read every inquiry personally: no autoresponders with a sales sequence attached.",
   "A useful response typically arrives within one to two business days.",
   "If we are not the right fit for what you need, we will say so, and where we can, point you toward a better option.",
   "Nothing is quoted until scope is understood. The form gives us context; the proposal comes after a conversation.",
@@ -34,7 +34,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Tell us what you're trying to build."
-        description="The more context you share — goals, constraints, timeline, budget range — the more useful our first response will be. Fields marked with an asterisk are required."
+        description="The more context you share (goals, constraints, timeline, budget range) the more useful our first response will be. Fields marked with an asterisk are required."
         breadcrumbs={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]}
       />
 

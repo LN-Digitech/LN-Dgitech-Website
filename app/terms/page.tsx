@@ -15,7 +15,7 @@ const sections = [
   {
     heading: "Agreement to these terms",
     paragraphs: [
-      "By using this website you agree to these terms. If you do not agree, please do not use the site. These terms govern website use only — client engagements are governed by a separate signed agreement.",
+      "By using this website you agree to these terms. If you do not agree, please do not use the site. These terms govern website use only. Client engagements are governed by a separate signed agreement.",
     ],
   },
   {

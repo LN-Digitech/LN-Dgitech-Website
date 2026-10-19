@@ -9,7 +9,7 @@ import type { SiteConfig } from "@/types";
  *
  * NOTE: contact details and social URLs are intentionally left as null until
  * genuine values are supplied. The UI hides any contact channel that has no
- * real value — nothing is invented.
+ * real value, nothing is invented.
  */
 export const siteConfig: SiteConfig = {
   name: "LN Digitech",
@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
     mark: "/images/logo/mark.jpg",
     width: 760,
     height: 218,
-    alt: "LN Digitech — Ideas That Build Brands",
+    alt: "LN Digitech, Ideas That Build Brands",
   },
   contact: {
     email: "lndigitech.2026@gmail.com",

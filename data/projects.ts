@@ -8,7 +8,7 @@ import type { Project } from "@/types";
  * Concept projects are clearly labelled on the site.
  *
  * Only include `results` when the figures are genuinely measured and the
- * client has approved their use. Otherwise use `null` — the UI omits the
+ * client has approved their use. Otherwise use `null`, the UI omits the
  * section entirely.
  *
  * Until real client projects are added, this file contains concept
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     summary:
       "Concept operations dashboard replacing a spreadsheet-based dispatch workflow with role-based views, offline-tolerant forms and an auditable change history.",
     description:
-      "A concept study for a field-services company whose dispatch process ran on a shared spreadsheet and phone calls. The proposed tool gave dispatchers a live board view, field staff an offline-tolerant mobile form, and managers an auditable history of every change. The study deliberately scoped the first release to dispatch and reporting only, deferring invoicing integration to a later phase — an example of how we keep a first release small enough to actually ship.",
+      "A concept study for a field-services company whose dispatch process ran on a shared spreadsheet and phone calls. The proposed tool gave dispatchers a live board view, field staff an offline-tolerant mobile form, and managers an auditable history of every change. The study deliberately scoped the first release to dispatch and reporting only, deferring invoicing integration to a later phase, an example of how we keep a first release small enough to actually ship.",
     isConcept: true,
     results: null,
     year: 2025,
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     summary:
       "Concept identity system for a homewares label, including AI-assisted lifestyle imagery produced under strict art direction and disclosed as generated.",
     description:
-      "A concept study combining a visual identity system with responsible AI-assisted imagery production. The identity established colour, type and layout rules for packaging and retail. Lifestyle imagery — normally the most expensive line in a homewares launch budget — was produced through art-directed AI generation with human curation and post-production, then disclosed as AI-assisted in all applications. The study documents where generated imagery performed well (environments, context) and where it still struggled (fine textile detail).",
+      "A concept study combining a visual identity system with responsible AI-assisted imagery production. The identity established colour, type and layout rules for packaging and retail. Lifestyle imagery, normally the most expensive line in a homewares launch budget, was produced through art-directed AI generation with human curation and post-production, then disclosed as AI-assisted in all applications. The study documents where generated imagery performed well (environments, context) and where it still struggled (fine textile detail).",
     isConcept: true,
     results: null,
     year: 2025,
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     summary:
       "Concept marketing site and content architecture for an adult-learning platform, built around search intent rather than internal org structure.",
     description:
-      "A concept study for an adult-learning platform whose original site mirrored its internal department structure, leaving prospective students unable to find course information. The proposed architecture reorganised content around learner intent — career change, upskilling, certification — with clear prerequisite and outcome statements on every course page. Editorial guidelines were included so the internal team could maintain the structure after launch.",
+      "A concept study for an adult-learning platform whose original site mirrored its internal department structure, leaving prospective students unable to find course information. The proposed architecture reorganised content around learner intent (career change, upskilling, certification) with clear prerequisite and outcome statements on every course page. Editorial guidelines were included so the internal team could maintain the structure after launch.",
     isConcept: true,
     results: null,
     year: 2025,

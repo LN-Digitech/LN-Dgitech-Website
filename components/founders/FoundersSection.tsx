@@ -22,7 +22,7 @@ function initialsOf(name: string): string {
 }
 
 /**
- * "Meet Our Founders" — both co-founders rendered with equal visual weight.
+ * "Meet Our Founders", both co-founders rendered with equal visual weight.
  *
  * Real portraits render when supplied in data/founders.ts; until then a
  * monogram block is shown. No generated or stock image is ever presented

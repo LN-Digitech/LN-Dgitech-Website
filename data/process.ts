@@ -10,7 +10,7 @@ export const processSteps: ProcessStep[] = [
     number: "01",
     title: "Discover",
     detail:
-      "We start by understanding the business as it actually operates — the offer, the buyer, the economics and the constraints. This means interviews with the people doing the work, not just the person commissioning the project.",
+      "We start by understanding the business as it actually operates: the offer, the buyer, the economics and the constraints. This means interviews with the people doing the work, not just the person commissioning the project.",
     icon: Compass,
   },
   {
@@ -24,7 +24,7 @@ export const processSteps: ProcessStep[] = [
     number: "03",
     title: "Create",
     detail:
-      "Design and development happen in staged environments with regular previews. Nothing is held back until a final reveal — you see the work as it develops and can redirect early, when redirection is cheap.",
+      "Design and development happen in staged environments with regular previews. Nothing is held back until a final reveal. You see the work as it develops and can redirect early, when redirection is cheap.",
     icon: Hammer,
   },
   {
@@ -38,7 +38,7 @@ export const processSteps: ProcessStep[] = [
     number: "05",
     title: "Optimize",
     detail:
-      "Once live, results are measured against the goals agreed in strategy. Improvements are prioritised by evidence rather than opinion, and reported honestly — including when something did not work.",
+      "Once live, results are measured against the goals agreed in strategy. Improvements are prioritised by evidence rather than opinion, and reported honestly, including when something did not work.",
     icon: LineChart,
   },
 ];
@@ -62,7 +62,7 @@ export const differentiators: Differentiator[] = [
   {
     title: "Modern AI-enabled workflows",
     detail:
-      "We use AI tools where they genuinely improve speed or quality — research, production, testing — with human direction and disclosure. We do not ship unreviewed machine output and call it work.",
+      "We use AI tools where they genuinely improve speed or quality (research, production, testing) with human direction and disclosure. We do not ship unreviewed machine output and call it work.",
     icon: Cpu,
   },
   {

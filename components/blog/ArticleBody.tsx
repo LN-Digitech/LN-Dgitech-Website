@@ -8,7 +8,7 @@ interface ArticleBodyProps {
 /**
  * Safe renderer for validated article blocks.
  *
- * Content lives in data/blog.ts as typed blocks — there is no HTML injection
+ * Content lives in data/blog.ts as typed blocks, there is no HTML injection
  * surface and no dangerouslySetInnerHTML for article content.
  */
 export function ArticleBody({ blocks }: ArticleBodyProps) {
@@ -59,7 +59,7 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
               <blockquote key={index} className={styles.quote}>
                 <p className={styles.quoteText}>{block.text}</p>
                 {block.attribution ? (
-                  <cite className={styles.attribution}>— {block.attribution}</cite>
+                  <cite className={styles.attribution}>{block.attribution}</cite>
                 ) : null}
               </blockquote>
             );

@@ -10,7 +10,7 @@ import { formatDate } from "@/lib/utils";
 import { buildPageMetadata, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Blog — Articles & Insights on Search, Web & AI Marketing",
+  title: "Blog | Articles & Insights on Search, Web & AI Marketing",
   description:
     "Practical articles from LN Digitech on SEO, AEO, GEO and AAO, website scoping, migrations, and responsible use of AI-generated imagery in marketing.",
   path: "/blog",

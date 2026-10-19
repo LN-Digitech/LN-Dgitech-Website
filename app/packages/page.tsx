@@ -11,7 +11,7 @@ import { buildPageMetadata, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import type { PackageId } from "@/types";
 
 export const metadata = buildPageMetadata({
-  title: "Service Packages & Pricing — LN Launch, Growth, Scale & Enterprise",
+  title: "Service Packages & Pricing | LN Launch, Growth, Scale & Enterprise",
   description:
     "Monthly digital agency packages in Indian rupees: LN Launch from ₹9,999, LN Growth from ₹24,999, LN Scale from ₹49,999 and LN Enterprise from ₹1,00,000. Scope is confirmed in a written proposal.",
   path: "/packages",
@@ -65,7 +65,7 @@ export default function PackagesPage() {
       <PageHero
         eyebrow="Packages & pricing"
         title="Service packages priced in rupees, scoped in writing."
-        description="Four starting shapes for different stages of business. Every engagement is confirmed in a signed proposal that states exactly what is included — and what is not."
+        description="Four starting shapes for different stages of business. Every engagement is confirmed in a signed proposal that states exactly what is included, and what is not."
         breadcrumbs={[{ name: "Home", path: "/" }, { name: "Packages", path: "/packages" }]}
       />
 
@@ -133,8 +133,8 @@ export default function PackagesPage() {
               Compare packages
             </h2>
             <p className={styles.compareIntro}>
-              Scroll horizontally on small screens. An em dash (—) means the item is not
-              part of that package unless scoped separately.
+              Scroll horizontally on small screens. &ldquo;Not included&rdquo; means the item is
+              not part of that package unless scoped separately.
             </p>
             <div className={styles.tableWrap} role="region" aria-label="Package comparison" tabIndex={0}>
               <table className={styles.table}>
@@ -164,7 +164,7 @@ export default function PackagesPage() {
                         const value = row.values[id];
                         return (
                           <td key={id} className={styles.td}>
-                            {value ?? <span className={styles.dash}>—</span>}
+                            {value ?? <span className={styles.dash}>Not included</span>}
                           </td>
                         );
                       })}

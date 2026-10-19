@@ -37,7 +37,7 @@ export function Footer() {
       <div className={styles.inner}>
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <Link href="/" className={styles.logoLink} aria-label={`${siteConfig.name} — home`}>
+            <Link href="/" className={styles.logoLink} aria-label={`${siteConfig.name} home`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={siteConfig.logo.srcLight}
@@ -51,7 +51,7 @@ export function Footer() {
             <p className={styles.intro}>
               LN Digitech is a full-service digital agency working across search, creative,
               engineering, commerce and AI-assisted production. We help businesses build
-              brands that hold up — technically, creatively and commercially.
+              brands that hold up, technically, creatively and commercially.
             </p>
             {hasContact ? (
               <ul className={styles.contactList}>

@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { differentiators } from "@/data/process";
 
 /**
- * "Why LN Digitech" — differentiators grid. All claims are process-based;
+ * "Why LN Digitech", differentiators grid. All claims are process-based;
  * no invented statistics, awards or client numbers.
  */
 export function WhyUs() {

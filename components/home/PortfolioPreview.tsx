@@ -8,7 +8,7 @@ import { getFeaturedProjects } from "@/data/projects";
 
 /**
  * Homepage portfolio preview. Project cards are honest about concept status
- * — see data/projects.ts.
+ *, see data/projects.ts.
  */
 export function PortfolioPreview() {
   const featured = getFeaturedProjects();

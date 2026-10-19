@@ -42,7 +42,7 @@ function classesFor(props: ButtonProps): string {
  * Shared button/link component.
  *
  * Renders a Next.js <Link> when `href` is provided, otherwise a native
- * <button>. Use `loading` for submission states — the label stays visible so
+ * <button>. Use `loading` for submission states, the label stays visible so
  * the control does not resize.
  */
 export function Button(props: ButtonProps) {

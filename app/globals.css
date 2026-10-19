@@ -316,6 +316,37 @@ b {
 }
 
 /* --------------------------------------------------------------------------
+   Large screens, TV & ultra-wide (1536px+)
+   Scales the rem-based type and spacing system up in steps so content stays
+   comfortable when the viewport is far away (TVs) or very wide. Only rem
+   tokens scale; px-based shadows and radii are intentionally left alone.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1536px) {
+  :root {
+    font-size: 17px; /* +6.25% on every rem token */
+    --container-width: 1240px;
+    --container-width-wide: 1400px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    font-size: 18px; /* +12.5%: typical TV / large monitor */
+    --container-width: 1280px;
+    --container-width-wide: 1440px;
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    font-size: 20px; /* 4K and large-panel TVs */
+    --container-width: 1360px;
+    --container-width-wide: 1520px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Reduced motion
    -------------------------------------------------------------------------- */
 

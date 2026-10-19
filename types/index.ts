@@ -96,7 +96,7 @@ export type PackageId = "launch" | "growth" | "scale" | "enterprise";
 export interface PricingPackage {
   id: PackageId;
   name: string;
-  /** Human-readable price range, e.g. "₹9,999 – ₹19,999". */
+  /** Human-readable price range, e.g. "₹9,999 to ₹19,999". */
   priceLabel: string;
   /** Numeric floor for sorting/structured data. */
   priceFrom: number;

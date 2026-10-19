@@ -10,7 +10,7 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 /**
  * Homepage.
  *
- * Server component — all sections are server-rendered. No testimonials
+ * Server component, all sections are server-rendered. No testimonials
  * section is rendered because no verified testimonials exist; see
  * data/site.ts if that changes.
  */

@@ -12,7 +12,7 @@ interface BadgeProps {
 
 /**
  * Compact label used for categories, package names and status markers.
- * Never uses colour alone to communicate meaning — text is always present.
+ * Never uses colour alone to communicate meaning, text is always present.
  */
 export function Badge({ children, tone = "neutral", className }: BadgeProps) {
   return <span className={cn(styles.badge, styles[tone], className)}>{children}</span>;

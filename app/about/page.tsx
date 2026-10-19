@@ -11,7 +11,7 @@ import { absoluteUrl } from "@/lib/utils";
 import { siteConfig } from "@/data/site";
 
 export const metadata = buildPageMetadata({
-  title: "About — How LN Digitech Works",
+  title: "About | How LN Digitech Works",
   description:
     "LN Digitech is a full-service digital agency combining marketing, design, engineering and AI-assisted production. Learn how we scope, build and support client engagements.",
   path: "/about",
@@ -22,7 +22,7 @@ const principles = [
     icon: Target,
     title: "Scope before production",
     detail:
-      "Every engagement begins with a written scope: what is being delivered, what is deliberately excluded, how the result will be measured, and what we need from you to hit the timeline. Work starts after that document exists — not before.",
+      "Every engagement begins with a written scope: what is being delivered, what is deliberately excluded, how the result will be measured, and what we need from you to hit the timeline. Work starts after that document exists, not before.",
   },
   {
     icon: Shield,
@@ -46,7 +46,7 @@ const principles = [
     icon: Sparkles,
     title: "AI used with direction and disclosure",
     detail:
-      "We use AI tools where they improve speed or quality — research, production, testing — under human direction. Machine output is reviewed before it ships, and AI-assisted work is disclosed when disclosure is relevant.",
+      "We use AI tools where they improve speed or quality (research, production, testing) under human direction. Machine output is reviewed before it ships, and AI-assisted work is disclosed when disclosure is relevant.",
   },
   {
     icon: Handshake,
@@ -78,7 +78,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About LN Digitech"
         title="A digital agency built around accountability, not volume."
-        description="LN Digitech works with businesses across India and internationally on search, creative, engineering, commerce and AI-assisted production. This page explains how we operate — the parts most agency sites leave out."
+        description="LN Digitech works with businesses across India and internationally on search, creative, engineering, commerce and AI-assisted production. This page explains how we operate: the parts most agency sites leave out."
         breadcrumbs={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]}
         variant="dark"
       />
@@ -90,8 +90,7 @@ export default function AboutPage() {
             <div className={styles.introProse}>
               <p>
                 Most businesses that contact us have one of three situations: growth has
-                stalled and the digital work behind it is unclear; a significant build —
-                website, app, store, internal tool — needs to happen properly the first
+                stalled and the digital work behind it is unclear; a significant build (website, app, store, internal tool) needs to happen properly the first
                 time; or a marketing function exists but produces activity without a
                 measurable connection to revenue.
               </p>
