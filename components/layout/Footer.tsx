@@ -43,8 +43,8 @@ export function Footer() {
               <img
                 src={siteConfig.logo.srcLight}
                 alt={siteConfig.logo.alt}
-                width={190}
-                height={43}
+                width={siteConfig.logo.width}
+                height={siteConfig.logo.height}
                 className={styles.logo}
               />
             </Link>

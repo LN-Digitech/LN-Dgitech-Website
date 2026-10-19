@@ -20,11 +20,11 @@ export const siteConfig: SiteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example.com",
   locale: "en_IN",
   logo: {
-    src: "/images/logo/logo.svg",
-    srcLight: "/images/logo/logo-light.svg",
-    mark: "/images/logo/mark.svg",
-    width: 320,
-    height: 72,
+    src: "/images/logo/logo.png",
+    srcLight: "/images/logo/logo-light.png",
+    mark: "/images/logo/mark.jpg",
+    width: 760,
+    height: 218,
     alt: "LN Digitech — Ideas That Build Brands",
   },
   contact: {

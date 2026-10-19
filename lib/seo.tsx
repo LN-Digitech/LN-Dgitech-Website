@@ -29,7 +29,7 @@ export function buildPageMetadata({
   path,
   canonicalPath,
   noIndex = false,
-  ogImage = "/images/logo/mark.svg",
+  ogImage = "/images/og/default.png",
   type = "website",
   publishedTime,
   modifiedTime,

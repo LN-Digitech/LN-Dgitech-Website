@@ -65,19 +65,19 @@ Deploys cleanly to Vercel, Netlify or any Node host. Set every environment varia
 
 ---
 
-## Replacing the temporary logo
-
-> **The logo files in `public/images/logo/` are placeholders, not the official LN Digitech mark.** Each SVG contains a comment saying so.
-
-Replace these three files with the official logo (keep the same filenames, or update `data/site.ts`):
+## Brand assets
 
 | File | Used for |
 | --- | --- |
-| `public/images/logo/logo.svg` | Header and general use |
-| `public/images/logo/logo-light.svg` | Footer (on dark navy) |
-| `public/images/logo/mark.svg` | Open Graph / favicon-style square usage |
+| `public/images/logo/logo.png` | Header (760×218, white background baked in) |
+| `public/images/logo/logo-light.png` | Footer on dark navy (generated: transparent bg, white text, blue accent kept) |
+| `public/images/logo/mark.jpg` | JSON-LD structured data |
+| `app/icon.jpg` | Browser favicon (Next.js App Router auto-serves `app/icon.*`) |
+| `public/images/og/default.png` | Default Open Graph / social share card (1200×630, generated from the logo) |
 
-The logo width/height and alt text are configured in `data/site.ts` → `logo`.
+Intrinsic dimensions and alt text live in `data/site.ts` → `logo`. If the official logo is ever re-exported, replace `logo.png` and regenerate `logo-light.png` + `og/default.png`.
+
+Known gap: `mark.jpg` is only 64×64 — fine as a favicon, too small for an `apple-touch-icon` (needs 180×180). Drop a larger export in `app/apple-icon.jpg` when available.
 
 ---
 
@@ -121,7 +121,8 @@ lib/
   utils.ts       INR/date formatting, URL helpers
 
 types/index.ts  All shared TypeScript types
-public/images/logo/  TEMPORARY placeholder logos — replace before launch
+public/images/logo/  Brand logo assets (header, footer light variant, mark)
+public/images/og/     Default social share card
 ```
 
 ## How to add a service
