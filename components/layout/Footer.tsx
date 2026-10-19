@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import styles from "./Footer.module.css";
-import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/data/site";
 import { getServicesSorted } from "@/data/services";
 
@@ -35,7 +34,7 @@ export function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <Container>
+      <div className={styles.inner}>
         <div className={styles.grid}>
           <div className={styles.brand}>
             <Link href="/" className={styles.logoLink} aria-label={`${siteConfig.name} — home`}>
@@ -148,7 +147,7 @@ export function Footer() {
             ))}
           </ul>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }
