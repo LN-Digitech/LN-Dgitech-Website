@@ -7,7 +7,26 @@
 }
 
 .heading {
-  margin-bottom: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+/* The full band is a dark navy surface, but SectionHeading's default
+   colours target light backgrounds (title would render invisible).
+   Override them here and tighten the internal gap. */
+.section .heading {
+  gap: var(--space-2);
+}
+
+.section .heading :is(h2, h3) {
+  color: #f8fafc;
+}
+
+.section .heading p {
+  color: var(--color-text-inverse-muted);
+}
+
+.section .heading p:first-child {
+  color: #22d3ee;
 }
 
 .grid {
