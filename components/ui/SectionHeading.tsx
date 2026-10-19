@@ -14,6 +14,8 @@ interface SectionHeadingProps {
   className?: string;
   /** Heading level for correct document outline. Defaults to h2. */
   as?: "h2" | "h3";
+  /** Optional id for the heading element, for aria-labelledby wiring. */
+  id?: string;
 }
 
 /**
@@ -28,11 +30,14 @@ export function SectionHeading({
   actions,
   className,
   as: Heading = "h2",
+  id,
 }: SectionHeadingProps) {
   return (
     <div className={cn(styles.heading, align === "center" && styles.centered, className)}>
       {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
-      <Heading className={styles.title}>{title}</Heading>
+      <Heading id={id} className={styles.title}>
+        {title}
+      </Heading>
       {description ? <p className={styles.description}>{description}</p> : null}
       {actions ? <div className={styles.actions}>{actions}</div> : null}
     </div>

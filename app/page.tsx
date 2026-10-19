@@ -1,6 +1,7 @@
 import { Hero } from "@/components/home/Hero";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { WhyUs } from "@/components/home/WhyUs";
+import { FoundersSection } from "@/components/founders/FoundersSection";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { PortfolioPreview } from "@/components/home/PortfolioPreview";
 import { PricingPreview } from "@/components/home/PricingPreview";
@@ -19,6 +20,7 @@ export default function HomePage() {
       <Hero />
       <ServicesOverview />
       <WhyUs />
+      <FoundersSection variant="compact" />
       <ProcessSection />
       <PortfolioPreview />
       <PricingPreview />

@@ -3,8 +3,12 @@ import styles from "./about.module.css";
 import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { FoundersSection } from "@/components/founders/FoundersSection";
 import { processSteps } from "@/data/process";
+import { founders } from "@/data/founders";
 import { buildPageMetadata, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/utils";
+import { siteConfig } from "@/data/site";
 
 export const metadata = buildPageMetadata({
   title: "About — How LN Digitech Works",
@@ -56,10 +60,19 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "About", path: "/about" },
-        ])}
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+          ...founders.map((founder) => ({
+            "@type": "Person",
+            name: founder.fullName,
+            jobTitle: founder.title,
+            url: absoluteUrl("/about#founders", siteConfig.url),
+            worksFor: { "@type": "Organization", name: siteConfig.name },
+          })),
+        ]}
       />
 
       <PageHero
@@ -163,6 +176,8 @@ export default function AboutPage() {
           </section>
         </Container>
       </section>
+
+      <FoundersSection />
 
       <FinalCTA />
     </>

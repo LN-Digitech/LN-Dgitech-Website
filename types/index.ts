@@ -174,6 +174,29 @@ export type ArticleBlock =
   | { type: "note"; text: string };
 
 /* -------------------------------------------------------------------------- */
+/* Founders                                                                    */
+/* -------------------------------------------------------------------------- */
+
+export interface Founder {
+  slug: string;
+  fullName: string;
+  title: string;
+  /** Short authentic biography — no invented history, employers or results. */
+  bio: string;
+  /** Areas of responsibility. Drawn from the real remit, nothing embellished. */
+  responsibilities: string[];
+  /** Real portrait when supplied; monogram fallback renders otherwise. */
+  portrait: {
+    src: string;
+    alt: string;
+  } | null;
+  /** Verified profile URL, or null — never a fabricated link. */
+  linkedin: string | null;
+  /** One-line focus summary used in the compact homepage variant. */
+  focusLine: string;
+}
+
+/* -------------------------------------------------------------------------- */
 /* Process & general                                                           */
 /* -------------------------------------------------------------------------- */
 
