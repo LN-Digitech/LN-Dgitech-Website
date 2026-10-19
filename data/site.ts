@@ -28,8 +28,7 @@ export const siteConfig: SiteConfig = {
     alt: "LN Digitech — Ideas That Build Brands",
   },
   contact: {
-    // Replace with the real agency inbox before launch.
-    email: "hello@lndigitech.com",
+    email: "lndigitech.2026@gmail.com",
     phone: null,
     address: null,
     hours: null,
