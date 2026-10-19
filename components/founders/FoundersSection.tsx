@@ -46,7 +46,7 @@ export function FoundersSection({ variant = "full", className }: FoundersSection
           description={
             compact
               ? undefined
-              : "LN Digitech is led by two co-founders — one accountable for technology, one for marketing. Client work is scoped and delivered under their direct oversight."
+              : "One co-founder leads technology, the other leads marketing. Client work is scoped and delivered under their direct oversight."
           }
           className={styles.heading}
         />
