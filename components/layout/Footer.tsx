@@ -88,7 +88,7 @@ export function Footer() {
 
           <nav aria-label="Footer services" className={styles.column}>
             <h2 className={styles.columnTitle}>Services</h2>
-            <ul className={styles.linkList}>
+            <ul className={`${styles.linkList} ${styles.linkListSplit}`}>
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link href={`/services/${service.slug}`} className={styles.link}>
