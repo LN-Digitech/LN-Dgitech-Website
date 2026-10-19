@@ -1,0 +1,20 @@
+# Netlify build configuration for the LN Digitech website (Next.js 16 App Router).
+#
+# Netlify auto-injects the Next.js runtime (OpenNext adapter), so no plugin
+# entry is required here and the adapter version is intentionally not pinned.
+# Security headers, redirects and rewrites come from next.config.ts.
+#
+# Required environment variables (set in the Netlify dashboard, never commit):
+#   NEXT_PUBLIC_SITE_URL
+#     Canonical production origin, e.g. https://www.example.com (no trailing
+#     slash). Drives canonical URLs, sitemap, robots and Open Graph URLs.
+#   NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+#     Web3Forms Access Key from https://web3forms.com. Inlined at build time,
+#     so set it before the first production deploy and redeploy after changes.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "24"
