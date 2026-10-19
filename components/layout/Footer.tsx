@@ -35,7 +35,7 @@ export function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <Container wide>
+      <Container>
         <div className={styles.grid}>
           <div className={styles.brand}>
             <Link href="/" className={styles.logoLink} aria-label={`${siteConfig.name} — home`}>
