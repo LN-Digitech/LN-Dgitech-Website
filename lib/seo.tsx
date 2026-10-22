@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/data/site";
+import { founders } from "@/data/founders";
 import { absoluteUrl, truncate } from "@/lib/utils";
 
 /**
@@ -79,7 +80,7 @@ export function buildPageMetadata({
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": "Organization",
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
@@ -88,22 +89,11 @@ export function organizationJsonLd() {
     email: siteConfig.contact.email,
     ...(siteConfig.contact.phone ? { telephone: siteConfig.contact.phone } : {}),
     ...(siteConfig.contact.address ? { address: siteConfig.contact.address } : {}),
-    areaServed: ["IN", "Worldwide"],
-    knowsAbout: [
-      "Search Engine Optimization",
-      "Answer Engine Optimization",
-      "Generative Engine Optimization",
-      "Assistive Agent Optimization",
-      "Brand Identity Design",
-      "Web Development",
-      "Mobile App Development",
-      "Custom Software Development",
-      "E-commerce Development",
-      "Social Media Marketing",
-      "Content Strategy",
-      "AI-assisted Media Production",
-      "Technology Consulting",
-    ],
+    founder: founders.map((founder) => ({
+      "@type": "Person",
+      name: founder.fullName,
+      jobTitle: founder.title,
+    })),
     ...(siteConfig.social.length > 0
       ? { sameAs: siteConfig.social.map((item) => item.url) }
       : {}),
@@ -134,63 +124,6 @@ export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
       name: item.name,
       item: absoluteUrl(item.path, siteConfig.url),
     })),
-  };
-}
-
-export function serviceJsonLd(input: {
-  name: string;
-  description: string;
-  slug: string;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: input.name,
-    description: input.description,
-    url: absoluteUrl(`/services/${input.slug}`, siteConfig.url),
-    provider: {
-      "@type": "ProfessionalService",
-      "@id": `${siteConfig.url}/#organization`,
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-    areaServed: ["IN", "Worldwide"],
-  };
-}
-
-export function articleJsonLd(input: {
-  title: string;
-  description: string;
-  slug: string;
-  publishedAt: string;
-  updatedAt: string | null;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: input.title,
-    description: input.description,
-    url: absoluteUrl(`/blog/${input.slug}`, siteConfig.url),
-    datePublished: input.publishedAt,
-    ...(input.updatedAt ? { dateModified: input.updatedAt } : {}),
-    author: {
-      "@type": "Organization",
-      "@id": `${siteConfig.url}/#organization`,
-      name: siteConfig.name,
-    },
-    publisher: {
-      "@type": "Organization",
-      "@id": `${siteConfig.url}/#organization`,
-      name: siteConfig.name,
-      logo: {
-        "@type": "ImageObject",
-        url: absoluteUrl(siteConfig.logo.mark, siteConfig.url),
-      },
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": absoluteUrl(`/blog/${input.slug}`, siteConfig.url),
-    },
   };
 }
 

@@ -1,29 +1,24 @@
 import { Hero } from "@/components/home/Hero";
-import { ServicesOverview } from "@/components/home/ServicesOverview";
-import { WhyUs } from "@/components/home/WhyUs";
+import { MissionVision } from "@/components/home/MissionVision";
+import { ProductsSection } from "@/components/home/ProductsSection";
 import { FoundersSection } from "@/components/founders/FoundersSection";
-import { ProcessSection } from "@/components/home/ProcessSection";
-import { PortfolioPreview } from "@/components/home/PortfolioPreview";
-import { PricingPreview } from "@/components/home/PricingPreview";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
 /**
  * Homepage.
  *
- * Server component, all sections are server-rendered. No testimonials
- * section is rendered because no verified testimonials exist; see
- * data/site.ts if that changes.
+ * Server component, all sections are server-rendered. LN Digitech is an
+ * early-stage product-oriented technology startup; sections are limited to
+ * what can be stated honestly today: mission, products (placeholder until
+ * announcements), and the two co-founders.
  */
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <ServicesOverview />
-      <WhyUs />
+      <MissionVision />
+      <ProductsSection />
       <FoundersSection variant="compact" />
-      <ProcessSection />
-      <PortfolioPreview />
-      <PricingPreview />
       <FinalCTA />
     </>
   );

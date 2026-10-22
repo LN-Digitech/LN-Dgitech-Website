@@ -15,7 +15,7 @@ const sections = [
   {
     heading: "What we collect",
     paragraphs: [
-      `When you submit the contact form, we receive the information you choose to provide: your name, email address, phone number (if given), company or brand, the service and budget range you select, your project description, and your consent record.`,
+      `When you submit the contact form, we receive the information you choose to provide: your name, email address, phone number (if given), company or brand (if given), the enquiry type you select, your message, and your consent record.`,
       `The website may also collect standard technical data such as pages visited, browser type and approximate location through privacy-respecting analytics, where configured. We do not use this data to build advertising profiles.`,
     ],
   },
@@ -42,7 +42,7 @@ const sections = [
   {
     heading: "Data retention",
     paragraphs: [
-      "Contact-form notifications are retained in our email system for as long as needed to manage the inquiry and any resulting engagement, then deleted according to our internal retention practices. If you want your inquiry details removed sooner, contact us using the address below.",
+      "Contact-form notifications are retained in our email system for as long as needed to manage the enquiry and any resulting conversation, then deleted according to our internal retention practices. If you want your inquiry details removed sooner, contact us using the address below.",
     ],
   },
   {
@@ -54,7 +54,7 @@ const sections = [
   {
     heading: "Data security",
     paragraphs: [
-      "Form submissions are validated on our server, transmitted over HTTPS, and delivered to a configured inbox through an authenticated provider. Access to that inbox is restricted to team members who need it to respond to inquiries.",
+      "Form submissions are validated in your browser before being sent, transmitted over HTTPS, and delivered to a configured inbox through an authenticated provider. Access to that inbox is restricted to team members who need it to respond to enquiries.",
       "No internet transmission is completely secure. If we become aware of a breach affecting your information, we will notify affected individuals and the relevant authorities as required by applicable law.",
     ],
   },
@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
       <section className={styles.body}>
         <Container>
           <div className={styles.content}>
-            <p className={styles.effective}>Effective date: 18 October 2026</p>
+            <p className={styles.effective}>Effective date: 22 October 2026</p>
             {sections.map((section) => (
               <section key={section.heading} className={styles.section}>
                 <h2 className={styles.sectionTitle}>{section.heading}</h2>

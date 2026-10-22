@@ -12,15 +12,15 @@ export function FinalCTA() {
         <div className={styles.panel}>
           <div className={styles.copy}>
             <h2 id="cta-heading" className={styles.title}>
-              Ready to Build Something That Matters?
+              Interested in What We Are Building?
             </h2>
             <p className={styles.text}>
-              Tell us about your goals. We&apos;ll help you explore the right digital
-              solution for your business.
+              Product announcements will be published here first. If you want to talk about
+              partnerships, collaboration or anything else, we read every message.
             </p>
           </div>
           <a href="/contact" className={styles.cta}>
-            Discuss Your Project
+            Get in touch
             <ArrowRight size={18} aria-hidden="true" />
           </a>
         </div>

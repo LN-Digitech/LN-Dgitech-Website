@@ -1,17 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { AlertCircle, CheckCircle2, Send } from "lucide-react";
 import styles from "./ContactForm.module.css";
 import { Button } from "@/components/ui/Button";
-import {
-  budgetOptions,
-  contactFormSchema,
-  serviceOptions,
-  timelineOptions,
-} from "@/lib/validation";
-import { getPackageById, packages } from "@/data/packages";
+import { contactFormSchema, topicOptions } from "@/lib/validation";
 import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -25,10 +18,7 @@ const initialValues = {
   email: "",
   phone: "",
   company: "",
-  service: "",
-  budget: "",
-  timeline: "",
-  packageId: "",
+  topic: "",
   message: "",
   consent: false,
   botcheck: false, // Web3Forms honeypot checkbox
@@ -50,24 +40,9 @@ interface Web3FormsResponse {
  * response from Web3Forms. Failures are surfaced to the user and their
  * entered data is preserved. Web3Forms uses the submitted `email` field
  * as the reply-to address, so replies go to the visitor.
- *
- * Wrapped in a Suspense boundary by the page because useSearchParams
- * requires it during static rendering.
  */
 export function ContactForm() {
-  const searchParams = useSearchParams();
-  const presetPackage = searchParams.get("package") ?? "";
-  const presetServiceParam = searchParams.get("service") ?? "";
-
-  const [values, setValues] = useState(() => ({
-    ...initialValues,
-    packageId: ["launch", "growth", "scale", "enterprise"].includes(presetPackage)
-      ? presetPackage
-      : "",
-    service: serviceOptions.includes(presetServiceParam as never)
-      ? presetServiceParam
-      : "",
-  }));
+  const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [serverError, setServerError] = useState<string | null>(null);
@@ -120,8 +95,6 @@ export function ContactForm() {
       return;
     }
 
-    const selectedPackage = getPackageById(parsed.data.packageId ?? "");
-
     setStatus("submitting");
     try {
       const response = await fetch(WEB3FORMS_ENDPOINT, {
@@ -132,15 +105,12 @@ export function ContactForm() {
         },
         body: JSON.stringify({
           access_key: ACCESS_KEY,
-          subject: `New ${parsed.data.service} inquiry from ${parsed.data.fullName}`,
+          subject: `New ${parsed.data.topic.toLowerCase()} from ${parsed.data.fullName}`,
           name: parsed.data.fullName,
           email: parsed.data.email,
           phone: parsed.data.phone ?? "",
           company: parsed.data.company ?? "",
-          service: parsed.data.service,
-          budget: parsed.data.budget,
-          timeline: parsed.data.timeline,
-          package: selectedPackage ? selectedPackage.name : "No preference yet",
+          topic: parsed.data.topic,
           message: parsed.data.message,
           privacy_consent: "yes",
           botcheck: false,
@@ -182,9 +152,9 @@ export function ContactForm() {
     return (
       <div className={styles.success} role="status" aria-live="polite">
         <CheckCircle2 size={28} aria-hidden="true" className={styles.successIcon} />
-        <h3 className={styles.successTitle}>Thank you. Your inquiry has been received.</h3>
+        <h3 className={styles.successTitle}>Thank you. Your message has been received.</h3>
         <p className={styles.successText}>
-          We review every inquiry personally and typically respond within one to two business
+          We read every message personally and typically respond within one to two business
           days. If your request is time-sensitive, mention it in a follow-up email.
         </p>
       </div>
@@ -288,113 +258,37 @@ export function ContactForm() {
           />
         </div>
 
-        <div className={styles.field}>
-          <label htmlFor="service" className={styles.label}>
-            Service of interest <span className={styles.required}>*</span>
+        <div className={cn(styles.field, styles.fullWidth)}>
+          <label htmlFor="topic" className={styles.label}>
+            Enquiry type <span className={styles.required}>*</span>
           </label>
           <select
-            id="service"
-            name="service"
+            id="topic"
+            name="topic"
             required
-            className={cn(styles.select, errors.service && styles.inputError)}
-            value={values.service}
-            onChange={(e) => updateField("service", e.target.value)}
-            aria-invalid={errors.service ? true : undefined}
-            aria-describedby={errors.service ? "service-error" : undefined}
+            className={cn(styles.select, errors.topic && styles.inputError)}
+            value={values.topic}
+            onChange={(e) => updateField("topic", e.target.value)}
+            aria-invalid={errors.topic ? true : undefined}
+            aria-describedby={errors.topic ? "topic-error" : undefined}
           >
-            <option value="">Select a service…</option>
-            {serviceOptions.map((service) => (
-              <option key={service} value={service}>
-                {service}
+            <option value="">Select an enquiry type…</option>
+            {topicOptions.map((topic) => (
+              <option key={topic} value={topic}>
+                {topic}
               </option>
             ))}
           </select>
-          {errors.service ? (
-            <p id="service-error" className={styles.error}>
-              {errors.service}
+          {errors.topic ? (
+            <p id="topic-error" className={styles.error}>
+              {errors.topic}
             </p>
           ) : null}
-        </div>
-
-        <div className={styles.field}>
-          <label htmlFor="budget" className={styles.label}>
-            Estimated budget <span className={styles.required}>*</span>
-          </label>
-          <select
-            id="budget"
-            name="budget"
-            required
-            className={cn(styles.select, errors.budget && styles.inputError)}
-            value={values.budget}
-            onChange={(e) => updateField("budget", e.target.value)}
-            aria-invalid={errors.budget ? true : undefined}
-            aria-describedby={errors.budget ? "budget-error" : undefined}
-          >
-            <option value="">Select a budget range…</option>
-            {budgetOptions.map((budget) => (
-              <option key={budget} value={budget}>
-                {budget}
-              </option>
-            ))}
-          </select>
-          {errors.budget ? (
-            <p id="budget-error" className={styles.error}>
-              {errors.budget}
-            </p>
-          ) : null}
-        </div>
-
-        <div className={styles.field}>
-          <label htmlFor="timeline" className={styles.label}>
-            Project timeline <span className={styles.required}>*</span>
-          </label>
-          <select
-            id="timeline"
-            name="timeline"
-            required
-            className={cn(styles.select, errors.timeline && styles.inputError)}
-            value={values.timeline}
-            onChange={(e) => updateField("timeline", e.target.value)}
-            aria-invalid={errors.timeline ? true : undefined}
-            aria-describedby={errors.timeline ? "timeline-error" : undefined}
-          >
-            <option value="">Select a timeline…</option>
-            {timelineOptions.map((timeline) => (
-              <option key={timeline} value={timeline}>
-                {timeline}
-              </option>
-            ))}
-          </select>
-          {errors.timeline ? (
-            <p id="timeline-error" className={styles.error}>
-              {errors.timeline}
-            </p>
-          ) : null}
-        </div>
-
-        <div className={styles.field}>
-          <label htmlFor="packageId" className={styles.label}>
-            Package of interest <span className={styles.optional}>(optional)</span>
-          </label>
-          <select
-            id="packageId"
-            name="packageId"
-            className={styles.select}
-            value={values.packageId}
-            onChange={(e) => updateField("packageId", e.target.value)}
-          >
-            <option value="">No preference yet</option>
-            {packages.map((pkg) => (
-              <option key={pkg.id} value={pkg.id}>
-                {pkg.name}, {pkg.priceLabel}
-              </option>
-            ))}
-          </select>
         </div>
 
         <div className={cn(styles.field, styles.fullWidth)}>
           <label htmlFor="message" className={styles.label}>
-            Project description <span className={styles.required}>*</span>
+            Message <span className={styles.required}>*</span>
           </label>
           <textarea
             id="message"
@@ -402,7 +296,7 @@ export function ContactForm() {
             rows={6}
             required
             maxLength={4000}
-            placeholder="What are you trying to achieve? What does success look like? Any constraints we should know about?"
+            placeholder="What would you like to talk about? The more context you give us, the more useful our response will be."
             className={cn(styles.textarea, errors.message && styles.inputError)}
             value={values.message}
             onChange={(e) => updateField("message", e.target.value)}
@@ -415,8 +309,7 @@ export function ContactForm() {
             </p>
           ) : (
             <p id="message-hint" className={styles.hint}>
-              Minimum 20 characters. The more context you give us, the more useful our
-              response will be.
+              Minimum 20 characters.
             </p>
           )}
         </div>
@@ -448,7 +341,7 @@ export function ContactForm() {
               aria-describedby={errors.consent ? "consent-error" : undefined}
             />
             <span>
-              I agree that LN Digitech may use my details to respond to this inquiry, as
+              I agree that LN Digitech may use my details to respond to this message, as
               described in the{" "}
               <a href="/privacy-policy" className={styles.inlineLink}>
                 privacy policy
@@ -465,12 +358,12 @@ export function ContactForm() {
       </div>
 
       <p className="visually-hidden" role="status" aria-live="polite">
-        {status === "submitting" ? "Sending inquiry…" : ""}
+        {status === "submitting" ? "Sending your message…" : ""}
       </p>
 
       <Button type="submit" size="lg" loading={status === "submitting"} className={styles.submit}>
         <Send size={17} aria-hidden="true" style={{ marginRight: "0.45rem" }} />
-        {status === "submitting" ? "Sending inquiry…" : "Send inquiry"}
+        {status === "submitting" ? "Sending…" : "Send message"}
       </Button>
     </form>
   );

@@ -1,6 +1,6 @@
 # LN Digitech — Website
 
-Production website for **LN Digitech**, a full-service digital marketing, creative design, software development and AI solutions agency. Tagline: *Ideas That Build Brands.*
+Production website for **LN Digitech**, an early-stage technology startup building practical software products. Tagline: *Building practical technology products.*
 
 Built with Next.js 16 (App Router), React 19, TypeScript (strict mode) and CSS Modules. No component library, no Tailwind — styling is design tokens in `globals.css` plus per-component CSS Modules.
 
@@ -32,7 +32,7 @@ Copy-Item .env.example .env.local
 
 ### Contact form delivery (Web3Forms)
 
-The contact form submits directly from the browser to [Web3Forms](https://web3forms.com) (https://api.web3forms.com/submit), which forwards inquiries to the team inbox by email. Server-side API calls to Web3Forms require a paid plan with IP whitelisting, so no custom server endpoint is used.
+The contact form submits directly from the browser to [Web3Forms](https://web3forms.com) (https://api.web3forms.com/submit), which forwards enquiries to the team inbox by email. Server-side API calls to Web3Forms require a paid plan with IP whitelisting, so no custom server endpoint is used.
 
 1. Create a free account at [web3forms.com](https://web3forms.com).
 2. Copy the Access Key from the dashboard → set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`.
@@ -86,93 +86,64 @@ app/
   page.tsx              Homepage
   globals.css           Design tokens, reset, typography, utilities
   not-found.tsx         Custom 404
-  sitemap.ts            Dynamic sitemap (generated from data files)
+  sitemap.ts            Static sitemap
   robots.ts             robots.txt
-  about/  blog/[slug]/  contact/  packages/  portfolio/
+  about/  products/  contact/
   privacy-policy/  terms/
-  services/  services/[slug]/
 
 components/
-  layout/    Header (dropdown + mobile nav), Footer, AnnouncementBar
-  home/      Hero, ServicesOverview, WhyUs, ProcessSection,
-             PortfolioPreview, PricingPreview, FinalCTA
-  ui/        Button, Container, SectionHeading, Badge, PageHero,
-             Breadcrumbs, FAQAccordion
+  layout/    Header (mobile nav), Footer, AnnouncementBar
+  home/      Hero, MissionVision, ProductsSection, FinalCTA
+  ui/        Button, Container, SectionHeading, PageHero,
+             Breadcrumbs
   forms/     ContactForm
-  portfolio/ PortfolioGrid
-  blog/      ArticleBody
+  founders/  FoundersSection
 
 data/
   site.ts       Brand config, contact details, social links, announcement bar
-  services.ts   All 13 services (slugs, copy, FAQs, deliverables)
-  packages.ts   Pricing packages + comparison table rows
-  projects.ts   Portfolio entries (concept vs client work)
-  blog.ts       Articles (typed content blocks, no raw HTML)
-  process.ts    Process steps + differentiators
+  founders.ts   Co-founder bios and responsibilities
+  products.ts   Announced products (empty until products are finalised)
 
 lib/
   validation.ts  Contact form Zod schema (client-side validation)
   seo.tsx        Metadata builders + JSON-LD helpers
-  utils.ts       INR/date formatting, URL helpers
+  utils.ts       URL helpers, truncate
 
 types/index.ts  All shared TypeScript types
 public/images/logo/  Brand logo assets (header, footer light variant, mark)
 public/images/og/     Default social share card
 ```
 
-## How to add a service
+## How to add a product
 
-1. Add an object to `services` in `data/services.ts` with a unique `slug`.
-2. Fill in `summary`, `description`, `problems`, `deliverables`, `process`, `suitableFor`, `limitations` and `faqs` — each written specifically for that service.
-3. Pick an `icon` from `lucide-react` and an `accent` colour.
-4. Set `featured: true` to show it on the homepage overview.
-5. The detail page, navigation dropdown, sitemap entry and footer link generate automatically. Run `npm run build` to confirm.
+1. Add an object to `products` in `data/products.ts` with a unique `slug`.
+2. Fill in `name`, `tagline`, `description`, `status` and `url` (`null` until the product is publicly accessible). Only factual fields — no dates, pricing or features that are not final.
+3. The homepage products section and the `/products` page pick the list up automatically; run `npm run build` to confirm.
 
-## How to update packages and prices
-
-Edit `data/packages.ts` only:
-
-- `packages` — name, `priceLabel` (display string), `priceFrom` (number), features, exclusions, CTA.
-- `packageComparison` — rows for the comparison table; use `null` for "not included" (renders as "—").
-- `packageDisclaimer` — the legal note shown under pricing.
-
-No component hardcodes a price. Homepage cards, the packages page and the contact-form package selector all read from this file.
-
-## How to add a portfolio project
-
-Edit `data/projects.ts`:
-
-- Set `isConcept: true` for internal/concept work. **The UI labels these visibly — never present concept work as client work.**
-- Only populate `results` with genuinely measured, client-approved figures. Use `null` otherwise; the results section is omitted entirely.
-
-## How to add a blog post
-
-Edit `data/blog.ts`. Content is typed blocks (`p`, `h2`, `h3`, `ul`, `ol`, `quote`, `note`) — there is no raw-HTML injection surface. Set `author: null` unless a genuine author exists. Posts render statically and appear in the sitemap automatically.
+While `products` is empty, both pages render an honest "no products announced yet" state instead of fictional cards.
 
 ---
 
 ## Contact form security
 
-- **Server-side Zod validation** (authoritative; client validation is UX only).
-- **Honeypot field** — bots that fill it get a fake success but nothing is delivered.
-- **Rate limiting** — 5 requests per 10 minutes per IP (in-memory; swap for Redis/Upstash if you deploy multiple instances).
-- **32 KB body limit** before parsing.
-- **Secrets stay server-side.** The email provider key never reaches the client.
-- Provider failures return HTTP 502 — success is never reported for undelivered inquiries.
+- **Client-side Zod validation** before any request leaves the page (there is no custom server endpoint; Web3Forms receives only what passed validation).
+- **Honeypot field** (`botcheck`) — bots that fill it get a fake success and nothing is delivered. Web3Forms also discards honeypot hits server-side.
+- **Rate limiting** — Web3Forms returns HTTP 429 when exceeded; the form surfaces that to the visitor.
+- **No success without delivery.** A confirmed `success: true` response from Web3Forms is required before the form thanks the visitor; failures preserve entered data.
 
 ## What is intentionally absent
 
-- **No testimonials section** — none exist yet. Add verified ones to the homepage when available.
-- **No fabricated statistics, awards or client counts** anywhere.
+- **No product screenshots, feature lists, pricing or launch dates** — none are final. They will be published on `/products` when they are.
+- **No testimonials, client logos, case studies or statistics** — none exist.
 - **No social links** until real profile URLs are added to `data/site.ts`.
 - **No phone number or address** until genuine values are supplied.
 
 ## Checks performed
 
 ```powershell
-npm run lint       # ✅ clean (0 errors, 0 warnings)
-npx tsc --noEmit   # ✅ clean
-npm run build      # ✅ 31 routes generated
+npm run lint       # 0 errors (1 pre-existing warning: no-img-element in FoundersSection)
+npx tsc --noEmit   # 0 errors
+npm run build      # 11 routes: /, /products, /about, /contact, privacy, terms, sitemap, robots, 404
 ```
 
-Smoke-tested against the production server: all 15 routes return 200, unknown routes return 404, and the contact API returns 422 (invalid input), 200 (honeypot discard), 429 (rate limit) and 502 (email unconfigured) as designed.
+Smoke-tested against the production server: all 8 public routes return 200, and unknown or removed routes (/services, /packages, /portfolio, /blog, anything else) return 404.

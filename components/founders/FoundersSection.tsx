@@ -46,7 +46,7 @@ export function FoundersSection({ variant = "full", className }: FoundersSection
           description={
             compact
               ? undefined
-              : "One co-founder leads technology, the other leads marketing. Client work is scoped and delivered under their direct oversight."
+              : "One co-founder leads technology, the other leads marketing. Both are involved directly in everything the company ships."
           }
           className={styles.heading}
         />
