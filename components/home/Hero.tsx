@@ -7,9 +7,9 @@ import { siteConfig } from "@/data/site";
 /**
  * Homepage hero.
  *
- * Visual identity: a structured "system diagram" composition built from
- * brand-coloured geometry rather than a stock gradient blob. The composition
- * is decorative (aria-hidden) and CSS-only, no client JS, no layout shift.
+ * Positions LN Digitech as the parent technology brand: headline, support
+ * copy, product-discovery CTAs, and a decorative portfolio diagram built
+ * from brand-coloured geometry (CSS only, no client JS, no layout shift).
  */
 export function Hero() {
   return (
@@ -18,34 +18,33 @@ export function Hero() {
         <div className={styles.copy}>
           <p className={styles.eyebrow}>
             <span className={styles.eyebrowDot} aria-hidden="true" />
-            Early-stage technology startup
+            LN Digitech, a technology company
           </p>
           <h1 id="hero-heading" className={styles.title}>
-            Building <span className="gradient-text">practical technology products.</span>
+            Building Technology <span className="gradient-text">for What&apos;s Next.</span>
           </h1>
           <p className={styles.lead}>
-            LN Digitech is an early-stage technology startup building software products that
-            solve real-world problems. Product details will be announced here when they are
-            finalised.
+            LN Digitech is building software products and technology solutions designed to
+            simplify business operations, connect workflows, and solve real-world problems.
           </p>
           <div className={styles.actions}>
             <Link href="/products" className={styles.primaryCta}>
-              View products
+              Explore Our Products
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link href="/contact" className={styles.secondaryCta}>
-              Get in touch
+            <Link href="/about" className={styles.secondaryCta}>
+              About LN Digitech
             </Link>
           </div>
           <ul className={styles.signals} aria-label="Company facts">
             <li className={styles.signal}>
               <Sparkles size={15} aria-hidden="true" />
-              Early-stage startup
+              Technology company
             </li>
             <li className={styles.signalDivider} aria-hidden="true" />
-            <li className={styles.signal}>Product-focused</li>
+            <li className={styles.signal}>Products in development</li>
             <li className={styles.signalDivider} aria-hidden="true" />
-            <li className={styles.signal}>Announcements coming soon</li>
+            <li className={styles.signal}>Launching later</li>
           </ul>
         </div>
 
@@ -55,23 +54,23 @@ export function Hero() {
               <span className={styles.panelDot} />
               <span className={styles.panelDot} />
               <span className={styles.panelDot} />
-              <span className={styles.panelTitle}>ln-digitech / status</span>
+              <span className={styles.panelTitle}>ln-digitech / portfolio</span>
             </div>
             <div className={styles.panelBody}>
               <div className={styles.nodeRow}>
-                <span className={`${styles.node} ${styles.nodeBlue}`}>Observe</span>
+                <span className={`${styles.node} ${styles.nodeNavy}`}>LN Digitech</span>
                 <span className={styles.edge} />
-                <span className={`${styles.node} ${styles.nodeCyan}`}>Validate</span>
+                <span className={`${styles.node} ${styles.nodeBlue}`}>BusinessOS</span>
               </div>
               <div className={styles.nodeRow}>
-                <span className={`${styles.node} ${styles.nodeNavy}`}>Design</span>
+                <span className={`${styles.node} ${styles.nodeBlue}`}>LN Engage</span>
                 <span className={styles.edge} />
-                <span className={`${styles.node} ${styles.nodeBlue}`}>Build</span>
+                <span className={`${styles.node} ${styles.nodeCyan}`}>LN Manage</span>
               </div>
               <div className={styles.nodeRow}>
-                <span className={`${styles.node} ${styles.nodeCyan}`}>Learn</span>
+                <span className={`${styles.node} ${styles.nodeNavy}`}>LN One</span>
                 <span className={styles.edge} />
-                <span className={`${styles.node} ${styles.nodeNavy}`}>Improve</span>
+                <span className={`${styles.node} ${styles.nodeCyan}`}>More products</span>
               </div>
               <div className={styles.metricGrid}>
                 <div className={styles.metric}>
@@ -80,7 +79,7 @@ export function Hero() {
                 </div>
                 <div className={styles.metric}>
                   <span className={styles.metricLabel}>Focus</span>
-                  <span className={styles.metricValue}>Products</span>
+                  <span className={styles.metricValue}>Business software</span>
                 </div>
                 <div className={styles.metric}>
                   <span className={styles.metricLabel}>Launches</span>

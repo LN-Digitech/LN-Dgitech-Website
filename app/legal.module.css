@@ -1,5 +1,5 @@
 .body {
-  padding-block: clamp(2.5rem, 5vw, 4rem) var(--section-padding);
+  padding-block: clamp(1.75rem, 3.5vw, 2.75rem) var(--section-padding);
   background: var(--color-background);
 }
 

@@ -8,18 +8,19 @@ const entries = [
     icon: Target,
     title: "Mission",
     detail:
-      "Build practical technology products that solve real problems for people and businesses. We choose problems we understand and can build well, not whatever happens to be trending.",
+      "Build practical software products that solve real problems for businesses, starting with business operations and growing into a wider technology portfolio over time.",
   },
   {
     icon: Telescope,
     title: "Vision",
     detail:
-      "Software that people keep choosing because it is genuinely useful, straightforward to use and built to last. That reputation is earned one product at a time.",
+      "A technology company whose products earn their place by being genuinely useful: business software first, then more technology solutions as the company grows.",
   },
 ];
 
 /**
- * Mission and vision. Stated intentions, not claims of traction.
+ * Mission and vision for the homepage. Stated intentions, not claims of
+ * traction. Rendered as the About section of the homepage.
  */
 export function MissionVision() {
   return (
@@ -28,9 +29,9 @@ export function MissionVision() {
         <div className={styles.layout}>
           <div className={styles.intro}>
             <SectionHeading
-              eyebrow="Mission & vision"
-              title="Why we are building."
-              description="LN Digitech exists to turn practical problems into products people actually want to use. This page will not pretend that journey is further along than it is."
+              eyebrow="About LN Digitech"
+              title="What we are building."
+              description="LN Digitech is product-led: direction comes from real problems worth solving, not from what is easiest to sell. No product has launched yet, and this section will not pretend otherwise."
             />
           </div>
           <ul className={styles.list}>

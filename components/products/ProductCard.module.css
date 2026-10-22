@@ -1,0 +1,344 @@
+/* Product card ---------------------------------------------------------------
+   Shared by the homepage (compact) and /products (full).
+   -------------------------------------------------------------------------- */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.visual {
+  display: block;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.category {
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.name {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.purpose {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+}
+
+.description {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-2) 0 0;
+}
+
+/* Status badge -------------------------------------------------------------- */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+
+.status::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status[data-status="In Development"] {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+
+.status[data-status="Planned"] {
+  background: var(--color-background);
+  border-color: var(--color-border-strong);
+  color: var(--color-text-muted);
+}
+
+.status[data-status="Coming Soon"] {
+  background: var(--color-cyan-soft);
+  color: var(--color-navy);
+}
+
+.status[data-status="Available"] {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.suite {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* Dashboard mockup ---------------------------------------------------------- */
+
+.mockWindow {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-background);
+  overflow: hidden;
+}
+
+.mockTop {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 0.7rem;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mockDot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-border-strong);
+}
+
+.mockLabel {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.mockBody {
+  display: flex;
+  min-height: 7.5rem;
+}
+
+.mockSide {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 2.3rem;
+  padding: 0.6rem 0.45rem;
+  background: var(--color-navy);
+  flex-shrink: 0;
+}
+
+.mockSideBar {
+  height: 0.4rem;
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.16);
+}
+
+.mockSideBarActive {
+  background: var(--color-cyan);
+}
+
+.mockMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+  min-width: 0;
+  padding: 0.7rem;
+}
+
+.mockHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mockPill {
+  margin-left: auto;
+  width: 2.2rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.mockBar {
+  display: block;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--color-border);
+}
+
+.mockBarShort {
+  width: 38%;
+}
+
+.mockBarMed {
+  width: 58%;
+}
+
+.mockBarWide {
+  width: 78%;
+  flex: 1;
+}
+
+.mockBarAccent {
+  background: rgba(37, 99, 235, 0.45);
+}
+
+.mockBarCyan {
+  background: rgba(34, 211, 238, 0.65);
+}
+
+/* CRM: sales pipeline columns */
+
+.mockPipeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.mockCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.4rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  min-height: 4rem;
+}
+
+/* Inventory: stat tiles + table rows */
+
+.mockStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+
+.mockStat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.45rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.mockTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.45rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.mockRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Integrated: chart + list split */
+
+.mockSplit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.mockChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.3rem;
+  padding: 0.45rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  min-height: 4rem;
+}
+
+.mockChartCol {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.55), rgba(34, 211, 238, 0.35));
+}
+
+.mockList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 0.35rem;
+  padding: 0.45rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+/* Full variant: wide rows on /products -------------------------------------- */
+
+@media (min-width: 48rem) {
+  .card[data-variant="full"] {
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.9fr) 1.1fr;
+    gap: var(--space-6);
+    align-items: center;
+    padding: var(--space-6);
+  }
+
+  .card[data-variant="full"] .mockBody {
+    min-height: 9rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .mockBody {
+    min-height: 6.5rem;
+  }
+}

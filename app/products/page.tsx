@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, PackageOpen } from "lucide-react";
+import { ArrowRight, Layers } from "lucide-react";
 import styles from "./products.module.css";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
+import { ProductCard } from "@/components/products/ProductCard";
 import { FinalCTA } from "@/components/home/FinalCTA";
-import { products, productsStatusNote } from "@/data/products";
-import { siteConfig } from "@/data/site";
+import { businessSuite, futureVision, products, productsHonestyNote } from "@/data/products";
 
 export const metadata: Metadata = {
   title: "Products",
-  description: `What ${siteConfig.name} is building. Product details will be announced here when they are finalised.`,
+  description: `The products LN Digitech is building under the ${businessSuite.name} portfolio: LN Engage (CRM), LN Manage (inventory and billing) and LN One (combined offering). Statuses shown honestly.`,
 };
 
 const breadcrumbs = [
@@ -21,72 +21,78 @@ const breadcrumbs = [
 /**
  * Products page.
  *
- * Lists announced products from data/products.ts. While that list is empty
- * the page states clearly that nothing has been announced yet. It never
- * invents product names, features, pricing, dates or screenshots.
+ * Introduces the BusinessOS portfolio and its three product concepts with
+ * honest, configurable statuses, followed by the long-term vision beyond
+ * business software. No launch dates, pricing or features are invented.
  */
 export default function ProductsPage() {
   return (
     <>
       <PageHero
         eyebrow="Products"
-        title="What we are building."
-        description="LN Digitech is building practical technology products. This page carries the official announcements."
+        title="Products in the works."
+        description={`${businessSuite.name} is LN Digitech's business software portfolio. Each product below shows its real status.`}
         breadcrumbs={breadcrumbs}
       />
 
       <section className={styles.section} aria-labelledby="product-list-heading">
         <Container>
+          <div className={styles.architecture} aria-label="Portfolio structure">
+            <span className={styles.archNode}>{businessSuite.parent}</span>
+            <span className={styles.archArrow} aria-hidden="true">
+              →
+            </span>
+            <span className={`${styles.archNode} ${styles.archNodeAccent}`}>
+              {businessSuite.name}
+            </span>
+            <span className={styles.archArrow} aria-hidden="true">
+              →
+            </span>
+            <span className={styles.archNode}>Business software products</span>
+          </div>
+
           <h2 id="product-list-heading" className="visually-hidden">
             Announced products
           </h2>
 
-          {products.length > 0 ? (
-            <ul className={styles.list}>
-              {products.map((product) => (
-                <li key={product.slug} className={styles.product}>
-                  <h3 className={styles.productName}>{product.name}</h3>
-                  <p className={styles.productTagline}>{product.tagline}</p>
-                  <p className={styles.productDescription}>{product.description}</p>
-                  <div className={styles.productMeta}>
-                    <span className={styles.productStatus}>{product.status}</span>
-                    {product.url ? (
-                      <a
-                        href={product.url}
-                        className={styles.productLink}
-                        rel="noopener noreferrer"
-                      >
-                        Visit product
-                        <ArrowRight size={15} aria-hidden="true" />
-                      </a>
-                    ) : null}
-                  </div>
+          <ul className={styles.list}>
+            {products.map((product) => (
+              <li key={product.slug}>
+                <ProductCard product={product} variant="full" id={product.slug} />
+              </li>
+            ))}
+          </ul>
+
+          <p className={styles.note}>{productsHonestyNote}</p>
+
+          <section aria-labelledby="beyond-heading" className={styles.beyond}>
+            <h2 id="beyond-heading" className={styles.beyondTitle}>
+              <Layers size={19} aria-hidden="true" />
+              Beyond {businessSuite.name}
+            </h2>
+            <p className={styles.beyondText}>
+              LN Digitech may also develop technology products outside the business
+              software portfolio over time:
+            </p>
+            <ul className={styles.beyondList}>
+              {futureVision.map((area) => (
+                <li key={area} className={styles.beyondItem}>
+                  {area}
                 </li>
               ))}
             </ul>
-          ) : (
-            <div className={styles.placeholder}>
-              <span className={styles.placeholderIcon}>
-                <PackageOpen size={28} aria-hidden="true" />
-              </span>
-              <h3 className={styles.placeholderTitle}>No products announced yet.</h3>
-              <p className={styles.placeholderText}>{productsStatusNote}</p>
-              <p className={styles.placeholderDetail}>
-                We are an early-stage startup and we would rather say nothing than publish
-                details that are not final. When the first product is ready, its name, what it
-                does and how to access it will appear on this page.
-              </p>
-              <div className={styles.placeholderActions}>
-                <Link href="/contact" className={styles.primaryCta}>
-                  Get in touch
-                  <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-                <Link href="/about" className={styles.secondaryCta}>
-                  About LN Digitech
-                </Link>
-              </div>
-            </div>
-          )}
+            <p className={styles.note}>
+              These are long-term directions, not announced products. When LN Digitech
+              commits to one, it will appear on this page with an honest status.
+            </p>
+          </section>
+
+          <p className={styles.linkRow}>
+            <Link href="/contact" className={styles.link}>
+              Ask about a product or register interest
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </p>
         </Container>
       </section>
 

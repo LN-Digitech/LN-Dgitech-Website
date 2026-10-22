@@ -113,8 +113,8 @@ export function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Button href="/contact" size="sm" className={styles.ctaButton}>
-            Get in touch
+          <Button href="/products" size="sm" className={styles.ctaButton}>
+            Explore Products
           </Button>
           <button
             type="button"
@@ -154,8 +154,8 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <Button href="/contact" fullWidth size="md" className={styles.mobileCta}>
-            Get in touch
+          <Button href="/products" fullWidth size="md" className={styles.mobileCta}>
+            Explore Products
           </Button>
         </nav>
       </div>

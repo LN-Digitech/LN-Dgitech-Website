@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import styles from "./Footer.module.css";
 import { siteConfig } from "@/data/site";
+import { products } from "@/data/products";
 
 const footerNav = [
   { label: "Home", href: "/" },
@@ -45,9 +46,9 @@ export function Footer() {
             </Link>
             <p className={styles.tagline}>{siteConfig.tagline}</p>
             <p className={styles.intro}>
-              LN Digitech is an early-stage technology startup building practical software
-              products. Product announcements will be published on this site when they are
-              finalised.
+              LN Digitech is a technology company building software products and
+              technology solutions, starting with the BusinessOS portfolio of
+              business software.
             </p>
             {hasContact ? (
               <ul className={styles.contactList}>
@@ -98,14 +99,16 @@ export function Footer() {
           <nav aria-label="Products" className={styles.column}>
             <h2 className={styles.columnTitle}>Products</h2>
             <ul className={styles.linkList}>
+              {products.map((product) => (
+                <li key={product.slug}>
+                  <Link href={`/products#${product.slug}`} className={styles.link}>
+                    {product.name}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link href="/products" className={styles.link}>
-                  Product announcements
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className={styles.link}>
-                  Enquiries
+                  All products
                 </Link>
               </li>
             </ul>
