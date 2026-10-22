@@ -12,8 +12,9 @@
 }
 
 .intro {
-  position: sticky;
-  top: calc(var(--header-height) + 2rem);
+  /* Not sticky on mobile: the single-column layout would let list items
+     scroll over the heading. Sticky only applies in the desktop grid. */
+  position: static;
 }
 
 .list {
@@ -73,6 +74,11 @@
 @media (min-width: 64rem) {
   .layout {
     grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .intro {
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
   }
 
   .list {

@@ -2,14 +2,11 @@ import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import styles from "./Footer.module.css";
 import { siteConfig } from "@/data/site";
-import { getServicesSorted } from "@/data/services";
 
 const footerNav = [
   { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
   { label: "About", href: "/about" },
-  { label: "Packages", href: "/packages" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -25,7 +22,6 @@ const legalLinks = [
  * `data/site.ts`. Nothing is invented here.
  */
 export function Footer() {
-  const services = getServicesSorted();
   const year = new Date().getFullYear();
   const hasContact =
     Boolean(siteConfig.contact.email) ||
@@ -49,9 +45,9 @@ export function Footer() {
             </Link>
             <p className={styles.tagline}>{siteConfig.tagline}</p>
             <p className={styles.intro}>
-              LN Digitech is a full-service digital agency working across search, creative,
-              engineering, commerce and AI-assisted production. We help businesses build
-              brands that hold up, technically, creatively and commercially.
+              LN Digitech is an early-stage technology startup building practical software
+              products. Product announcements will be published on this site when they are
+              finalised.
             </p>
             {hasContact ? (
               <ul className={styles.contactList}>
@@ -86,19 +82,6 @@ export function Footer() {
             ) : null}
           </div>
 
-          <nav aria-label="Footer services" className={styles.column}>
-            <h2 className={styles.columnTitle}>Services</h2>
-            <ul className={`${styles.linkList} ${styles.linkListSplit}`}>
-              {services.map((service) => (
-                <li key={service.slug}>
-                  <Link href={`/services/${service.slug}`} className={styles.link}>
-                    {service.shortName}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
           <nav aria-label="Footer navigation" className={styles.column}>
             <h2 className={styles.columnTitle}>Company</h2>
             <ul className={styles.linkList}>
@@ -109,6 +92,22 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Products" className={styles.column}>
+            <h2 className={styles.columnTitle}>Products</h2>
+            <ul className={styles.linkList}>
+              <li>
+                <Link href="/products" className={styles.link}>
+                  Product announcements
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className={styles.link}>
+                  Enquiries
+                </Link>
+              </li>
             </ul>
           </nav>
 

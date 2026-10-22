@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { Mail } from "lucide-react";
 import styles from "./contact.module.css";
 import { PageHero } from "@/components/ui/PageHero";
@@ -8,19 +7,25 @@ import { siteConfig } from "@/data/site";
 import { buildPageMetadata, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Contact | Start a Project with LN Digitech",
+  title: "Contact | LN Digitech",
   description:
-    "Tell LN Digitech about your project. Share your goals, budget range and timeline, and we will respond with honest recommendations, whether or not that includes hiring us.",
+    "Get in touch with LN Digitech. Whether it is a general enquiry, a partnership or a collaboration, we read every message and typically respond within one to two business days.",
   path: "/contact",
 });
 
 const whatToExpect = [
-  "We read every inquiry personally: no autoresponders with a sales sequence attached.",
+  "We read every message personally: no autoresponders with a sales sequence attached.",
   "A useful response typically arrives within one to two business days.",
-  "If we are not the right fit for what you need, we will say so, and where we can, point you toward a better option.",
-  "Nothing is quoted until scope is understood. The form gives us context; the proposal comes after a conversation.",
+  "There is no product to purchase yet, so nothing is quoted and nothing is upsold.",
+  "Partnership and collaboration enquiries go directly to the founders.",
 ];
 
+/**
+ * Contact page.
+ *
+ * Deliberately does not ask visitors to select a product or service: none
+ * are finalised. The form captures a topic and a free-text message only.
+ */
 export default function ContactPage() {
   return (
     <>
@@ -33,22 +38,19 @@ export default function ContactPage() {
 
       <PageHero
         eyebrow="Contact"
-        title="Tell us what you're trying to build."
-        description="The more context you share (goals, constraints, timeline, budget range) the more useful our first response will be. Fields marked with an asterisk are required."
-        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]}
+        title="Get in touch."
+        description="Choose an enquiry type and tell us what it is about. Fields marked with an asterisk are required."
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
       />
 
       <section className={styles.body} aria-label="Contact form">
         <Container>
           <div className={styles.layout}>
             <div className={styles.formColumn}>
-              <Suspense
-                fallback={
-                  <p className={styles.loadingForm}>Loading contact form…</p>
-                }
-              >
-                <ContactForm />
-              </Suspense>
+              <ContactForm />
             </div>
 
             <aside className={styles.sidebar} aria-label="What to expect">
@@ -75,8 +77,7 @@ export default function ContactPage() {
                     {siteConfig.contact.email}
                   </a>
                   <p className={styles.emailNote}>
-                    Useful for sending briefs, documents or existing site links before a
-                    call.
+                    Useful for sending briefs, documents or links before we reply.
                   </p>
                 </div>
               ) : null}
@@ -84,9 +85,9 @@ export default function ContactPage() {
               <div className={styles.card}>
                 <h2 className={styles.cardTitle}>Before you send</h2>
                 <p className={styles.cardText}>
-                  If you already have a website or social profiles, include the links in your
-                  message. Being able to look at your current presence before replying makes
-                  our response significantly more useful.
+                  If your enquiry is about a potential product or partnership, a sentence or
+                  two of context on who you are and what you have in mind helps us reply
+                  usefully the first time.
                 </p>
               </div>
             </aside>

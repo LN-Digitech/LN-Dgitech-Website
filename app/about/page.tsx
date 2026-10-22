@@ -1,61 +1,55 @@
-import { Target, Users, Shield, Layers, Sparkles, Handshake } from "lucide-react";
+import { Target, Shield, Users, Wrench } from "lucide-react";
 import styles from "./about.module.css";
 import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { FoundersSection } from "@/components/founders/FoundersSection";
-import { processSteps } from "@/data/process";
 import { founders } from "@/data/founders";
 import { buildPageMetadata, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
 import { siteConfig } from "@/data/site";
 
 export const metadata = buildPageMetadata({
-  title: "About | How LN Digitech Works",
+  title: "About | LN Digitech",
   description:
-    "LN Digitech is a full-service digital agency combining marketing, design, engineering and AI-assisted production. Learn how we scope, build and support client engagements.",
+    "LN Digitech is an early-stage technology startup building practical software products, founded by Lucky Joshi and Nishchay Singh Mehra. Learn what we are building and how we work.",
   path: "/about",
 });
 
 const principles = [
   {
     icon: Target,
-    title: "Scope before production",
+    title: "Problems before technology",
     detail:
-      "Every engagement begins with a written scope: what is being delivered, what is deliberately excluded, how the result will be measured, and what we need from you to hit the timeline. Work starts after that document exists, not before.",
+      "We choose to build only where we understand the problem first. A product exists to solve something specific, not to demonstrate a technology stack.",
   },
   {
     icon: Shield,
-    title: "Honest limitations, stated up front",
+    title: "Honest claims only",
     detail:
-      "No agency can guarantee rankings, AI citations, conversion rates or revenue. On every service page we publish what a service cannot do alongside what it can, so you can make a decision based on accurate expectations.",
+      "We will not publish product features, pricing, dates or traction that are not final. Where something is undecided, this site says so instead of filling the gap with marketing language.",
   },
   {
     icon: Users,
-    title: "Your team stays capable",
+    title: "Small team, direct access",
     detail:
-      "We build systems your team can maintain: documented code, editable content structures, guidelines and handover sessions. Dependence on a single agency is a business risk, and we do not engineer it into engagements.",
+      "LN Digitech is run by its two founders. Whoever you speak to is someone who builds or ships the work, not an account layer in between.",
   },
   {
-    icon: Layers,
-    title: "One team across the layers",
+    icon: Wrench,
+    title: "Built to be maintained",
     detail:
-      "Strategy, creative, content, engineering and measurement sit together. A campaign that needs a landing page, tracking and a CRM change does not get lost between three separate vendors.",
-  },
-  {
-    icon: Sparkles,
-    title: "AI used with direction and disclosure",
-    detail:
-      "We use AI tools where they improve speed or quality (research, production, testing) under human direction. Machine output is reviewed before it ships, and AI-assisted work is disclosed when disclosure is relevant.",
-  },
-  {
-    icon: Handshake,
-    title: "Work that holds up after we leave",
-    detail:
-      "Launches include monitoring plans, documentation and defined support arrangements. Maintenance is scoped rather than assumed, so nothing quietly decays after the project ends.",
+      "Software that cannot be maintained is a liability. We favour documented, understandable systems that can grow feature by feature long after launch.",
   },
 ];
 
+/**
+ * About page.
+ *
+ * Introduces LN Digitech as an early-stage product-oriented technology
+ * startup. Claims are limited to what is true today: who the founders are,
+ * what the company is working toward, and what it explicitly does not claim.
+ */
 export default function AboutPage() {
   return (
     <>
@@ -77,44 +71,47 @@ export default function AboutPage() {
 
       <PageHero
         eyebrow="About LN Digitech"
-        title="A digital agency built around accountability, not volume."
-        description="LN Digitech works with businesses across India and internationally on search, creative, engineering, commerce and AI-assisted production. This page explains how we operate: the parts most agency sites leave out."
-        breadcrumbs={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]}
+        title="An early-stage technology startup."
+        description="LN Digitech builds practical software products. We are at the beginning: no product has launched yet, and this page will not pretend otherwise."
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]}
         variant="dark"
       />
 
       <section className={styles.body} aria-label="About LN Digitech">
         <Container>
           <div className={styles.intro}>
-            <h2 className={styles.introTitle}>What we actually do</h2>
+            <h2 className={styles.introTitle}>Where we are</h2>
             <div className={styles.introProse}>
               <p>
-                Most businesses that contact us have one of three situations: growth has
-                stalled and the digital work behind it is unclear; a significant build (website, app, store, internal tool) needs to happen properly the first
-                time; or a marketing function exists but produces activity without a
-                measurable connection to revenue.
+                LN Digitech was started by Lucky Joshi and Nishchay Singh Mehra to build
+                software products that solve real-world problems. The company is early-stage:
+                product decisions are still being finalised, and nothing has been launched
+                publicly yet.
               </p>
               <p>
-                We address those situations across thirteen service lines, from SEO, AEO,
-                GEO and Assistive Agent Optimization through brand design, web and software
-                development, e-commerce, social media, content, consulting and AI-assisted
-                media production. The disciplines are broad by design: most real business
-                problems cross the boundary between marketing and technology, and solving
-                only one half rarely works.
+                That stage comes with a discipline we intend to keep. A young company has no
+                customers, case studies or metrics to point at, so the honest version of this
+                page is a short one. We would rather describe what we are actually doing, and
+                what remains undecided, than dress the company up as something it is not.
               </p>
               <p>
-                What we will not do is sell you a service you do not need. If buying
-                off-the-shelf software beats building a custom tool, we say so. If your
-                website does not yet deserve an SEO budget, we say that instead. An agency
-                relationship only works when the advice is honest enough to occasionally
-                cost us the work.
+                When products are ready, they will be announced on the{" "}
+                <a href="/products" className={styles.inlineLink}>
+                  products page
+                </a>{" "}
+                with clear descriptions of what they do and how to use them. Until then, this
+                site exists to introduce the company, the founders and the direction we are
+                working in.
               </p>
             </div>
           </div>
 
           <section aria-labelledby="principles-heading" className={styles.principles}>
             <h2 id="principles-heading" className={styles.sectionTitle}>
-              How we operate
+              How we work
             </h2>
             <ul className={styles.principleGrid}>
               {principles.map((principle) => {
@@ -132,45 +129,16 @@ export default function AboutPage() {
             </ul>
           </section>
 
-          <section aria-labelledby="process-heading" className={styles.processSection}>
-            <h2 id="process-heading" className={styles.sectionTitle}>
-              The process, in detail
-            </h2>
-            <ol className={styles.processList}>
-              {processSteps.map((step) => {
-                const Icon = step.icon;
-                return (
-                  <li key={step.number} className={styles.processItem}>
-                    <span className={styles.processNumber} aria-hidden="true">
-                      {step.number}
-                    </span>
-                    <div className={styles.processBody}>
-                      <span className={styles.processIcon}>
-                        <Icon size={17} aria-hidden="true" />
-                      </span>
-                      <div>
-                        <h3 className={styles.processTitle}>{step.title}</h3>
-                        <p className={styles.processDetail}>{step.detail}</p>
-                      </div>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-          </section>
-
           <section aria-labelledby="honest-heading" className={styles.honest}>
             <h2 id="honest-heading" className={styles.honestTitle}>
-              What we have not claimed on this site
+              What this site does not claim
             </h2>
             <p className={styles.honestText}>
-              You will not find invented client logos, fabricated testimonials, made-up
-              performance statistics, fake awards or claimed years of experience anywhere on
-              this website. Portfolio entries are labelled as concept studies where they are
-              not client work. Where verified numbers do not exist, the space they would
-              occupy is simply left empty. As the business publishes real case studies,
-              testimonials with permission and measured results, those will replace the
-              concept entries.
+              There are no product screenshots, feature lists, pricing tables, launch dates,
+              customer logos, testimonials or performance statistics on this website, because
+              none of those exist yet. No product names have been invented to fill the space.
+              When any of these become real, they will be published here first, and they will
+              be accurate.
             </p>
           </section>
         </Container>

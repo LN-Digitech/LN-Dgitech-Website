@@ -5,7 +5,7 @@ import type { Founder } from "@/types";
  *
  * Every field here is factual. Bios and responsibilities describe the actual
  * remit of each founder, no invented qualifications, previous employers,
- * years of experience, achievements or client results.
+ * years of experience, achievements or traction.
  *
  * - `portrait`: set to `{ src, alt }` when a real photograph is supplied.
  *   Until then the component renders a monogram, never a generated image
@@ -18,35 +18,34 @@ export const founders: Founder[] = [
     slug: "lucky-joshi",
     fullName: "Lucky Joshi",
     title: "Co-Founder & Technical Lead",
-    bio: "Lucky leads technology at LN Digitech. He owns technical strategy across client engagements: how products should be architected, which integrations earn their complexity, and how systems stay maintainable long after launch. His work spans web development, apps, custom software and AI-enabled digital products, with a consistent bias toward documented, maintainable builds over one-off deliverables.",
+    bio: "Lucky leads technology at LN Digitech. He owns the company's technical direction: which products are worth building, how they should be architected, and what it takes to keep them maintainable long after launch. His work spans web development, apps and software engineering, with a consistent bias toward documented, maintainable builds over one-off deliverables.",
     responsibilities: [
       "Technical strategy",
-      "Web development",
-      "App and software solutions",
-      "Technical architecture",
+      "Product architecture",
+      "Web and app development",
+      "Software engineering",
       "Integrations",
-      "Maintenance",
-      "AI-enabled digital products",
+      "AI-assisted product development",
     ],
     portrait: null,
     linkedin: null,
-    focusLine: "Technical strategy, engineering and AI-enabled products.",
+    focusLine: "Technical strategy, product engineering and AI-assisted development.",
   },
   {
     slug: "nishchay-singh-mehra",
     fullName: "Nishchay Singh Mehra",
     title: "Co-Founder & Marketing Lead",
-    bio: "Nishchay leads marketing at LN Digitech. He owns digital marketing strategy across the disciplines search now spans: classic SEO alongside AEO, GEO and Assistive Agent Optimization. Alongside search he runs social media, content strategy and brand positioning, keeping campaign work connected to measurable outcomes rather than activity for its own sake.",
+    bio: "Nishchay leads marketing at LN Digitech. He owns the company's marketing direction: how products are positioned, who they are for, and how launch communication is planned before anything ships. His background covers search, content strategy, social media and brand positioning, keeping messaging tied to real product value rather than activity for its own sake.",
     responsibilities: [
-      "Digital marketing strategy",
-      "SEO, AEO, GEO & AAO",
-      "Social media",
+      "Marketing strategy",
+      "Product positioning",
       "Content strategy",
-      "Brand positioning",
-      "Marketing campaigns",
+      "Search (SEO)",
+      "Social media",
+      "Brand communication",
     ],
     portrait: null,
     linkedin: null,
-    focusLine: "Search, content, social and brand strategy.",
+    focusLine: "Product positioning, content, search and brand strategy.",
   },
 ];

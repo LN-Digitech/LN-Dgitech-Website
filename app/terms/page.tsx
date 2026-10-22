@@ -7,7 +7,7 @@ import { buildPageMetadata, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 export const metadata = buildPageMetadata({
   title: "Terms & Conditions",
   description:
-    "Terms governing use of the LN Digitech website, including package pricing disclaimers, intellectual property and limitation of liability.",
+    "Terms governing use of the LN Digitech website, including disclaimers, intellectual property and limitation of liability.",
   path: "/terms",
 });
 
@@ -15,29 +15,21 @@ const sections = [
   {
     heading: "Agreement to these terms",
     paragraphs: [
-      "By using this website you agree to these terms. If you do not agree, please do not use the site. These terms govern website use only. Client engagements are governed by a separate signed agreement.",
-    ],
-  },
-  {
-    heading: "Service packages and pricing",
-    paragraphs: [
-      "Package names, price ranges and deliverables published on this website are proposed starting ranges in Indian rupees. They are not final contractual offers. Final scope, deliverables and pricing are confirmed only in a written proposal accepted by both parties.",
-      "Ad spend, third-party software subscriptions, hosting and domain fees, premium AI tool credits and applicable taxes are billed separately unless a signed proposal explicitly states otherwise.",
-      "Inclusion of a service in a package description does not mean every service the company offers is included in every tier. Anything not listed in the signed scope is not included.",
+      "By using this website you agree to these terms. If you do not agree, please do not use the site. These terms govern website use only. Any future contractual relationship will be governed by its own signed agreement.",
     ],
   },
   {
     heading: "Intellectual property",
     paragraphs: [
       "This website, including its text, design, code and brand marks, is the property of LN Digitech unless otherwise stated. You may not reproduce material from this site for commercial purposes without prior written permission.",
-      "Portfolio entries labelled as concept studies are demonstrations of capability, not representations of paid client work. Client projects are published only with permission.",
+      "Product names, descriptions and materials published on this site will belong to LN Digitech or its licensors once products are announced.",
     ],
   },
   {
     heading: "No guarantees",
     paragraphs: [
-      "Nothing on this website constitutes a guarantee of search rankings, AI platform inclusion, traffic, leads, conversions, revenue or business outcomes. Marketing and technology results depend on factors outside any agency's control, including competition, platform changes, market conditions and your own implementation.",
-      "Articles and guides on this site reflect general professional opinion at the time of writing and are not bespoke advice for your specific situation.",
+      "This website describes an early-stage company and products that have not yet launched. Nothing on this site is a commitment that any product will be released, that any feature will ship, or that any date mentioned will be met. Product details, availability and pricing, if any, will be confirmed only at announcement.",
+      "Nothing on this website constitutes professional advice or a guarantee of any business outcome.",
     ],
   },
   {
@@ -100,7 +92,7 @@ export default function TermsPage() {
       <section className={styles.body}>
         <Container>
           <div className={styles.content}>
-            <p className={styles.effective}>Effective date: 18 October 2026</p>
+            <p className={styles.effective}>Effective date: 22 October 2026</p>
             {sections.map((section) => (
               <section key={section.heading} className={styles.section}>
                 <h2 className={styles.sectionTitle}>{section.heading}</h2>

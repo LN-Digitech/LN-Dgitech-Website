@@ -18,33 +18,34 @@ export function Hero() {
         <div className={styles.copy}>
           <p className={styles.eyebrow}>
             <span className={styles.eyebrowDot} aria-hidden="true" />
-            Digital Marketing · Design · Technology · AI
+            Early-stage technology startup
           </p>
           <h1 id="hero-heading" className={styles.title}>
-            Ideas That <span className="gradient-text">Build Brands.</span>
+            Building <span className="gradient-text">practical technology products.</span>
           </h1>
           <p className={styles.lead}>
-            We combine creative thinking, intelligent marketing, and modern technology to
-            help ambitious businesses build stronger brands and grow digitally.
+            LN Digitech is an early-stage technology startup building software products that
+            solve real-world problems. Product details will be announced here when they are
+            finalised.
           </p>
           <div className={styles.actions}>
-            <Link href="/contact" className={styles.primaryCta}>
-              Start Your Project
+            <Link href="/products" className={styles.primaryCta}>
+              View products
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link href="/services" className={styles.secondaryCta}>
-              Explore Our Services
+            <Link href="/contact" className={styles.secondaryCta}>
+              Get in touch
             </Link>
           </div>
-          <ul className={styles.signals} aria-label="Core disciplines">
+          <ul className={styles.signals} aria-label="Company facts">
             <li className={styles.signal}>
               <Sparkles size={15} aria-hidden="true" />
-              SEO · AEO · GEO · AAO
+              Early-stage startup
             </li>
             <li className={styles.signalDivider} aria-hidden="true" />
-            <li className={styles.signal}>Design & Engineering</li>
+            <li className={styles.signal}>Product-focused</li>
             <li className={styles.signalDivider} aria-hidden="true" />
-            <li className={styles.signal}>AI-Assisted Production</li>
+            <li className={styles.signal}>Announcements coming soon</li>
           </ul>
         </div>
 
@@ -54,36 +55,36 @@ export function Hero() {
               <span className={styles.panelDot} />
               <span className={styles.panelDot} />
               <span className={styles.panelDot} />
-              <span className={styles.panelTitle}>ln-digitech / system</span>
+              <span className={styles.panelTitle}>ln-digitech / status</span>
             </div>
             <div className={styles.panelBody}>
               <div className={styles.nodeRow}>
-                <span className={`${styles.node} ${styles.nodeBlue}`}>Discover</span>
+                <span className={`${styles.node} ${styles.nodeBlue}`}>Observe</span>
                 <span className={styles.edge} />
-                <span className={`${styles.node} ${styles.nodeCyan}`}>Strategy</span>
+                <span className={`${styles.node} ${styles.nodeCyan}`}>Validate</span>
               </div>
               <div className={styles.nodeRow}>
-                <span className={`${styles.node} ${styles.nodeNavy}`}>Create</span>
+                <span className={`${styles.node} ${styles.nodeNavy}`}>Design</span>
                 <span className={styles.edge} />
-                <span className={`${styles.node} ${styles.nodeBlue}`}>Launch</span>
+                <span className={`${styles.node} ${styles.nodeBlue}`}>Build</span>
               </div>
               <div className={styles.nodeRow}>
-                <span className={`${styles.node} ${styles.nodeCyan}`}>Measure</span>
+                <span className={`${styles.node} ${styles.nodeCyan}`}>Learn</span>
                 <span className={styles.edge} />
-                <span className={`${styles.node} ${styles.nodeNavy}`}>Optimize</span>
+                <span className={`${styles.node} ${styles.nodeNavy}`}>Improve</span>
               </div>
               <div className={styles.metricGrid}>
                 <div className={styles.metric}>
-                  <span className={styles.metricLabel}>Channels</span>
-                  <span className={styles.metricValue}>13</span>
+                  <span className={styles.metricLabel}>Stage</span>
+                  <span className={styles.metricValue}>Early</span>
                 </div>
                 <div className={styles.metric}>
-                  <span className={styles.metricLabel}>Disciplines</span>
-                  <span className={styles.metricValue}>4</span>
+                  <span className={styles.metricLabel}>Focus</span>
+                  <span className={styles.metricValue}>Products</span>
                 </div>
                 <div className={styles.metric}>
-                  <span className={styles.metricLabel}>Process</span>
-                  <span className={styles.metricValue}>5 steps</span>
+                  <span className={styles.metricLabel}>Launches</span>
+                  <span className={styles.metricValue}>None yet</span>
                 </div>
               </div>
               <div className={styles.statusRow}>

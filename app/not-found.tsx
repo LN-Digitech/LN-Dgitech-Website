@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowLeft, Search } from "lucide-react";
 import styles from "./not-found.module.css";
 import { Container } from "@/components/ui/Container";
-import { getServicesSorted } from "@/data/services";
 
 /**
  * Custom 404 experience.
@@ -12,8 +11,6 @@ import { getServicesSorted } from "@/data/services";
  * server-only imports that depend on request data.
  */
 export default function NotFound() {
-  const services = getServicesSorted().slice(0, 6);
-
   return (
     <section className={styles.page}>
       <Container>
@@ -43,27 +40,20 @@ export default function NotFound() {
             </p>
             <ul className={styles.suggestionList}>
               <li>
-                <Link href="/services" className={styles.suggestion}>
-                  All services
+                <Link href="/products" className={styles.suggestion}>
+                  Products
                 </Link>
               </li>
               <li>
-                <Link href="/packages" className={styles.suggestion}>
-                  Packages &amp; pricing
+                <Link href="/about" className={styles.suggestion}>
+                  About LN Digitech
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className={styles.suggestion}>
-                  Portfolio
+                <Link href="/contact" className={styles.suggestion}>
+                  Contact
                 </Link>
               </li>
-              {services.map((service) => (
-                <li key={service.slug}>
-                  <Link href={`/services/${service.slug}`} className={styles.suggestion}>
-                    {service.shortName}
-                  </Link>
-                </li>
-              ))}
             </ul>
           </nav>
         </div>
