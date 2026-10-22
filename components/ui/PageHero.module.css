@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  padding-block: clamp(3rem, 6vw, 5rem) clamp(2.5rem, 5vw, 4rem);
+  padding-block: clamp(2.25rem, 4.5vw, 3.5rem) clamp(1.75rem, 3.5vw, 2.75rem);
   background-color: var(--color-background);
   border-bottom: 1px solid var(--color-border);
   overflow: hidden;
@@ -24,7 +24,7 @@
 }
 
 .compact {
-  padding-block: clamp(2.25rem, 4vw, 3.25rem) clamp(2rem, 4vw, 3rem);
+  padding-block: clamp(1.75rem, 3vw, 2.5rem) clamp(1.5rem, 2.5vw, 2rem);
 }
 
 .dark {

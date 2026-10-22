@@ -68,7 +68,7 @@
   --container-width: 1200px;
   --container-width-wide: 1360px;
   --container-padding: clamp(1.25rem, 4vw, 2.5rem);
-  --section-padding: clamp(4rem, 8vw, 7rem);
+  --section-padding: clamp(2.5rem, 4.5vw, 3.75rem);
   --header-height: 4.5rem;
 
   /* Spacing scale */
