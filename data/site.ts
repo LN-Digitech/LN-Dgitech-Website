@@ -14,9 +14,9 @@ import type { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
   name: "LN Digitech",
   legalName: "LN Digitech",
-  tagline: "Building practical technology products.",
+  tagline: "Building Technology for What's Next.",
   description:
-    "LN Digitech is an early-stage technology startup building practical software products to solve real-world problems, founded by Lucky Joshi and Nishchay Singh Mehra.",
+    "LN Digitech is a technology company building software products and technology solutions that simplify business operations, starting with the BusinessOS portfolio.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example.com",
   locale: "en_IN",
   logo: {
@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
     mark: "/images/logo/mark.jpg",
     width: 760,
     height: 218,
-    alt: "LN Digitech, Building practical technology products",
+    alt: "LN Digitech, Building Technology for What's Next",
   },
   contact: {
     email: "lndigitech.2026@gmail.com",

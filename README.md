@@ -1,8 +1,20 @@
 # LN Digitech — Website
 
-Production website for **LN Digitech**, an early-stage technology startup building practical software products. Tagline: *Building practical technology products.*
+Production website for **LN Digitech**, a technology company building software products and technology solutions, starting with the **BusinessOS** business-software portfolio (LN Engage, LN Manage, and LN One, a combined offering). Tagline: *Building Technology for What's Next.*
 
 Built with Next.js 16 (App Router), React 19, TypeScript (strict mode) and CSS Modules. No component library, no Tailwind — styling is design tokens in `globals.css` plus per-component CSS Modules.
+
+## Brand architecture
+
+```text
+LN Digitech (parent technology brand)
+└── BusinessOS (business software portfolio)
+    ├── LN Engage   CRM               status: In Development
+    ├── LN Manage   Inventory + Billing  status: Planned
+    └── LN One      CRM + Inventory/Billing (combined offering)  status: Planned
+```
+
+Long-term vision beyond BusinessOS (vision only, not announced products): AI-powered applications, developer tools and software infrastructure, industry-specific technology products, other technology products in the future.
 
 ---
 
@@ -93,16 +105,17 @@ app/
 
 components/
   layout/    Header (mobile nav), Footer, AnnouncementBar
-  home/      Hero, MissionVision, ProductsSection, FinalCTA
+  home/      Hero, ProductsSection, EcosystemSection, MissionVision, FinalCTA
+  products/  ProductCard (CSS dashboard mockups, status badges)
   ui/        Button, Container, SectionHeading, PageHero,
              Breadcrumbs
   forms/     ContactForm
   founders/  FoundersSection
 
 data/
-  site.ts       Brand config, contact details, social links, announcement bar
+  site.ts       Brand config, tagline, contact details, social links, announcement bar
   founders.ts   Co-founder bios and responsibilities
-  products.ts   Announced products (empty until products are finalised)
+  products.ts   Brand architecture: businessSuite, products (3 concepts), futureVision
 
 lib/
   validation.ts  Contact form Zod schema (client-side validation)
@@ -114,13 +127,21 @@ public/images/logo/  Brand logo assets (header, footer light variant, mark)
 public/images/og/     Default social share card
 ```
 
-## How to add a product
+## How to add or update a product
 
-1. Add an object to `products` in `data/products.ts` with a unique `slug`.
-2. Fill in `name`, `tagline`, `description`, `status` and `url` (`null` until the product is publicly accessible). Only factual fields — no dates, pricing or features that are not final.
-3. The homepage products section and the `/products` page pick the list up automatically; run `npm run build` to confirm.
+Everything product-related lives in `data/products.ts` (the homepage cards, /products page and footer links all render from it):
 
-While `products` is empty, both pages render an honest "no products announced yet" state instead of fictional cards.
+1. Add an object to `products` with a unique `slug`.
+2. Fill in `name`, `category`, `purpose`, `description`, `suite`, `visual` (`"crm" | "inventory" | "integrated"` mockup variant) and `url` (`null` until the product is publicly accessible).
+3. Set `status` to one of `"In Development" | "Planned" | "Coming Soon" | "Available"`. **Only use "Available" after the real release is confirmed.** Never add launch dates, pricing, feature lists or testimonials that have not been approved as fact.
+4. Run `npm run build` to confirm.
+
+Also editable in the same file:
+
+- `businessSuite` — the portfolio name and summary (rename BusinessOS here).
+- `futureVision` — the long-term vision areas shown as chips (never linked, no pages).
+
+The site's visual mockups are decorative CSS wireframes with no readable data, so they can never be mistaken for real product screenshots.
 
 ---
 
@@ -133,7 +154,8 @@ While `products` is empty, both pages render an honest "no products announced ye
 
 ## What is intentionally absent
 
-- **No product screenshots, feature lists, pricing or launch dates** — none are final. They will be published on `/products` when they are.
+- **No launch dates, pricing or final feature lists** — product statuses are configurable and changeable; only status labels approved as true may ship.
+- **No fake dashboard data** — product mockups are decorative CSS wireframes with skeleton bars only.
 - **No testimonials, client logos, case studies or statistics** — none exist.
 - **No social links** until real profile URLs are added to `data/site.ts`.
 - **No phone number or address** until genuine values are supplied.

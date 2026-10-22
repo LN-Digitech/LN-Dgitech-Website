@@ -12,9 +12,10 @@ import { z } from "zod";
 const PHONE_REGEX = /^[+\d][\d\s\-()]{6,19}$/;
 
 export const topicOptions = [
-  "General enquiry",
+  "Product enquiry",
   "Partnership or collaboration",
   "Media or press",
+  "General enquiry",
   "Other",
 ] as const;
 

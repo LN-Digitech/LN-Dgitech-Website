@@ -41,13 +41,29 @@ export interface AnnouncementBar {
 /* Products                                                                    */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Product readiness. Only "Available" may be used after a real release has
+ * been confirmed. Never publish launch dates that have not been approved.
+ */
+export type ProductStatus = "In Development" | "Planned" | "Coming Soon" | "Available";
+
+/** Decorative dashboard-mockup variant rendered on product cards. */
+export type ProductVisual = "crm" | "inventory" | "integrated";
+
 export interface Product {
   slug: string;
   name: string;
-  tagline: string;
+  /** Public category label, e.g. "Customer Relationship Management". */
+  category: string;
+  /** One-line purpose statement. */
+  purpose: string;
+  /** Short honest description. No invented features, pricing or dates. */
   description: string;
-  /** Current stage, e.g. "In development". Only add when factually true. */
-  status: string;
+  status: ProductStatus;
+  /** Portfolio this product belongs to (e.g. "BusinessOS"), or null. */
+  suite: string | null;
+  /** Which decorative mockup to render. */
+  visual: ProductVisual;
   /** Public product URL once live; null until then. */
   url: string | null;
 }

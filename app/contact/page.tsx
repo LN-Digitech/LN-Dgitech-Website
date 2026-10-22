@@ -9,15 +9,15 @@ import { buildPageMetadata, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 export const metadata = buildPageMetadata({
   title: "Contact | LN Digitech",
   description:
-    "Get in touch with LN Digitech. Whether it is a general enquiry, a partnership or a collaboration, we read every message and typically respond within one to two business days.",
+    "Ask about an LN Digitech product, register early interest in upcoming products, or contact us about anything else. We read every message and typically respond within one to two business days.",
   path: "/contact",
 });
 
 const whatToExpect = [
   "We read every message personally: no autoresponders with a sales sequence attached.",
+  "Product questions and early-interest messages go directly to the founders.",
   "A useful response typically arrives within one to two business days.",
-  "There is no product to purchase yet, so nothing is quoted and nothing is upsold.",
-  "Partnership and collaboration enquiries go directly to the founders.",
+  "Nothing is on sale yet, so nothing is quoted and nothing is upsold.",
 ];
 
 /**
@@ -39,7 +39,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Get in touch."
-        description="Choose an enquiry type and tell us what it is about. Fields marked with an asterisk are required."
+        description="Ask about a product, express interest in an upcoming product, or contact LN Digitech about anything else. Fields marked with an asterisk are required."
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Contact", path: "/contact" },
@@ -85,9 +85,10 @@ export default function ContactPage() {
               <div className={styles.card}>
                 <h2 className={styles.cardTitle}>Before you send</h2>
                 <p className={styles.cardText}>
-                  If your enquiry is about a potential product or partnership, a sentence or
-                  two of context on who you are and what you have in mind helps us reply
-                  usefully the first time.
+                  If you are asking about a specific product (LN Engage, LN Manage or
+                  LN One), mention it in your message. A
+                  sentence of context on your business helps us reply usefully the first
+                  time.
                 </p>
               </div>
             </aside>

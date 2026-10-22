@@ -12,11 +12,12 @@ export function FinalCTA() {
         <div className={styles.panel}>
           <div className={styles.copy}>
             <h2 id="cta-heading" className={styles.title}>
-              Interested in What We Are Building?
+              Curious About What We Are Building?
             </h2>
             <p className={styles.text}>
-              Product announcements will be published here first. If you want to talk about
-              partnerships, collaboration or anything else, we read every message.
+              Ask about LN Engage, LN Manage or LN One, or
+              register early interest in an upcoming product. We read every message
+              personally.
             </p>
           </div>
           <a href="/contact" className={styles.cta}>

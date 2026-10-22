@@ -349,6 +349,14 @@
   }
 }
 
+/* Keep the longer portfolio node labels inside the panel on small screens. */
+@media (max-width: 30rem) {
+  .node {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.68rem;
+  }
+}
+
 /* Responsive -------------------------------------------------------------- */
 
 @media (min-width: 60rem) {

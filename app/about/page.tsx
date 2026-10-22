@@ -12,7 +12,7 @@ import { siteConfig } from "@/data/site";
 export const metadata = buildPageMetadata({
   title: "About | LN Digitech",
   description:
-    "LN Digitech is an early-stage technology startup building practical software products, founded by Lucky Joshi and Nishchay Singh Mehra. Learn what we are building and how we work.",
+    "LN Digitech is a technology company building software products and technology solutions, starting with the BusinessOS portfolio. Meet the founders and learn what we are building.",
   path: "/about",
 });
 
@@ -71,8 +71,8 @@ export default function AboutPage() {
 
       <PageHero
         eyebrow="About LN Digitech"
-        title="An early-stage technology startup."
-        description="LN Digitech builds practical software products. We are at the beginning: no product has launched yet, and this page will not pretend otherwise."
+        title="A technology company built around what comes next."
+        description="LN Digitech builds software products and technology solutions, starting with the BusinessOS portfolio of business software. Nothing has launched yet, and this page will not pretend otherwise."
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "About", path: "/about" },
@@ -86,25 +86,31 @@ export default function AboutPage() {
             <h2 className={styles.introTitle}>Where we are</h2>
             <div className={styles.introProse}>
               <p>
-                LN Digitech was started by Lucky Joshi and Nishchay Singh Mehra to build
-                software products that solve real-world problems. The company is early-stage:
-                product decisions are still being finalised, and nothing has been launched
-                publicly yet.
+                LN Digitech is a technology company founded by Lucky Joshi and Nishchay
+                Singh Mehra to build practical software products. Its first portfolio is{" "}
+                <a href="/products" className={styles.inlineLink}>
+                  BusinessOS
+                </a>
+                , its business software portfolio covering customer management
+                (LN Engage), inventory and billing (LN Manage), and a combined offering
+                (LN One) that brings both together.
               </p>
               <p>
-                That stage comes with a discipline we intend to keep. A young company has no
-                customers, case studies or metrics to point at, so the honest version of this
-                page is a short one. We would rather describe what we are actually doing, and
-                what remains undecided, than dress the company up as something it is not.
+                The company is early-stage. Those products are concepts in development or
+                planning, not things you can buy today, and this site describes them with
+                honest statuses rather than marketing language. The same discipline applies
+                to everything else here: no invented customers, statistics, launch dates or
+                pricing.
               </p>
               <p>
-                When products are ready, they will be announced on the{" "}
+                The long-term direction is broader than business software. As LN Digitech
+                grows it may develop AI-powered applications, developer tools,
+                industry-specific products and other technology solutions. When a product
+                is ready to be announced properly, it appears on the{" "}
                 <a href="/products" className={styles.inlineLink}>
                   products page
                 </a>{" "}
-                with clear descriptions of what they do and how to use them. Until then, this
-                site exists to introduce the company, the founders and the direction we are
-                working in.
+                first, with an accurate status.
               </p>
             </div>
           </div>
@@ -134,11 +140,12 @@ export default function AboutPage() {
               What this site does not claim
             </h2>
             <p className={styles.honestText}>
-              There are no product screenshots, feature lists, pricing tables, launch dates,
-              customer logos, testimonials or performance statistics on this website, because
-              none of those exist yet. No product names have been invented to fill the space.
-              When any of these become real, they will be published here first, and they will
-              be accurate.
+              There are no launch dates, pricing tables, feature lists presented as final,
+              customer logos, testimonials or performance statistics on this website,
+              because none of those have been approved as fact. Product names and statuses
+              are working configuration and may change as decisions are made. When any of
+              these become real, they will be published here first, and they will be
+              accurate.
             </p>
           </section>
         </Container>
