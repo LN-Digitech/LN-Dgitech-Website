@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { AmbientScene } from "@/components/three/AmbientScene";
 import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/data/site";
 
@@ -34,7 +35,6 @@ export const metadata: Metadata = {
     "software products",
     "business software",
     "BusinessOS",
-    "CRM software",
     "inventory and billing software",
     "product development",
     "AI applications",
@@ -69,6 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
+        <AmbientScene />
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <a href="#main-content" className="skip-link">
           Skip to main content
