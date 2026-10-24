@@ -1,17 +1,15 @@
 # LN Digitech — Website
 
-Production website for **LN Digitech**, a technology company building software products and technology solutions, starting with the **BusinessOS** business-software portfolio (LN Engage, LN Manage, and LN One, a combined offering). Tagline: *Building Technology for What's Next.*
+Production website for **LN Digitech**, a technology company building software products and technology solutions, starting with the **BusinessOS** business-software portfolio (LN Manage, inventory and billing software). Tagline: *Building Technology for What's Next.*
 
-Built with Next.js 16 (App Router), React 19, TypeScript (strict mode) and CSS Modules. No component library, no Tailwind — styling is design tokens in `globals.css` plus per-component CSS Modules.
+Built with Next.js 16 (App Router), React 19, TypeScript (strict mode) and CSS Modules. No component library, no Tailwind — styling is design tokens in `globals.css` plus per-component CSS Modules. A single lazy-loaded three.js layer (`components/three/AmbientScene.tsx`) adds a decorative 3D background.
 
 ## Brand architecture
 
 ```text
 LN Digitech (parent technology brand)
 └── BusinessOS (business software portfolio)
-    ├── LN Engage   CRM               status: In Development
-    ├── LN Manage   Inventory + Billing  status: Planned
-    └── LN One      CRM + Inventory/Billing (combined offering)  status: Planned
+    └── LN Manage   Inventory + Billing  status: In Development
 ```
 
 Long-term vision beyond BusinessOS (vision only, not announced products): AI-powered applications, developer tools and software infrastructure, industry-specific technology products, other technology products in the future.
@@ -111,11 +109,12 @@ components/
              Breadcrumbs
   forms/     ContactForm
   founders/  FoundersSection
+  three/     AmbientScene (lazy WebGL background layer)
 
 data/
   site.ts       Brand config, tagline, contact details, social links, announcement bar
   founders.ts   Co-founder bios and responsibilities
-  products.ts   Brand architecture: businessSuite, products (3 concepts), futureVision
+  products.ts   Brand architecture: businessSuite, products, futureVision
 
 lib/
   validation.ts  Contact form Zod schema (client-side validation)
@@ -144,6 +143,16 @@ Also editable in the same file:
 The site's visual mockups are decorative CSS wireframes with no readable data, so they can never be mistaken for real product screenshots.
 
 ---
+
+## 3D ambient background
+
+The site has one decorative WebGL layer mounted in the root layout (`components/three/AmbientScene.tsx`):
+
+- **Lazy-loaded:** `three` is imported dynamically inside `useEffect`, so it never blocks first paint and runs only on the client.
+- **Decorative only:** the layer is `aria-hidden`, `pointer-events: none`, and contains no interaction or focusable content.
+- **Safe fallbacks:** if WebGL is unavailable the effect exits silently; `prefers-reduced-motion: reduce` renders one static frame with no animation loop.
+- **Cheap:** ~240 points and three wireframe solids, DPR capped at 1.5, rendering paused while the tab is hidden.
+- **Visible site-wide** because page-band backgrounds use the translucent tokens `--color-background-translucent` / `--color-surface-translucent` (86% opacity). Cards, header and footer stay opaque.
 
 ## Contact form security
 

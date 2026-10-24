@@ -10,7 +10,7 @@ import { businessSuite, futureVision, products, productsHonestyNote } from "@/da
 
 export const metadata: Metadata = {
   title: "Products",
-  description: `The products LN Digitech is building under the ${businessSuite.name} portfolio: LN Engage (CRM), LN Manage (inventory and billing) and LN One (combined offering). Statuses shown honestly.`,
+  description: `The products LN Digitech is building under the ${businessSuite.name} portfolio, starting with LN Manage for inventory and billing. Statuses shown honestly.`,
 };
 
 const breadcrumbs = [
@@ -21,7 +21,7 @@ const breadcrumbs = [
 /**
  * Products page.
  *
- * Introduces the BusinessOS portfolio and its three product concepts with
+ * Introduces the BusinessOS portfolio and its product concepts with
  * honest, configurable statuses, followed by the long-term vision beyond
  * business software. No launch dates, pricing or features are invented.
  */

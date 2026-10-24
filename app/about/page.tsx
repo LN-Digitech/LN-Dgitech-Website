@@ -91,9 +91,8 @@ export default function AboutPage() {
                 <a href="/products" className={styles.inlineLink}>
                   BusinessOS
                 </a>
-                , its business software portfolio covering customer management
-                (LN Engage), inventory and billing (LN Manage), and a combined offering
-                (LN One) that brings both together.
+                , its business software portfolio, with its first product concept, LN
+                Manage, covering inventory and billing.
               </p>
               <p>
                 The company is early-stage. Those products are concepts in development or

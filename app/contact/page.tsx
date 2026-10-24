@@ -85,8 +85,7 @@ export default function ContactPage() {
               <div className={styles.card}>
                 <h2 className={styles.cardTitle}>Before you send</h2>
                 <p className={styles.cardText}>
-                  If you are asking about a specific product (LN Engage, LN Manage or
-                  LN One), mention it in your message. A
+                  If you are asking about LN Manage, mention it in your message. A
                   sentence of context on your business helps us reply usefully the first
                   time.
                 </p>

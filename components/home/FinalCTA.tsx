@@ -15,7 +15,7 @@ export function FinalCTA() {
               Curious About What We Are Building?
             </h2>
             <p className={styles.text}>
-              Ask about LN Engage, LN Manage or LN One, or
+              Ask about LN Manage, or
               register early interest in an upcoming product. We read every message
               personally.
             </p>

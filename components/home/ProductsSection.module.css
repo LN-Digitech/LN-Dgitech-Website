@@ -1,12 +1,12 @@
 .section {
   padding-block: var(--section-padding);
-  background: var(--color-background);
+  background: var(--color-background-translucent);
   border-block: 1px solid var(--color-border);
 }
 
 .list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   gap: var(--space-5);
   margin: 0;
   padding: 0;
@@ -37,16 +37,4 @@
 
 .link:hover {
   color: var(--color-primary-dark);
-}
-
-@media (min-width: 48rem) {
-  .list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 64rem) {
-  .list {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }

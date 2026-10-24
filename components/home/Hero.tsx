@@ -63,12 +63,7 @@ export function Hero() {
                 <span className={`${styles.node} ${styles.nodeBlue}`}>BusinessOS</span>
               </div>
               <div className={styles.nodeRow}>
-                <span className={`${styles.node} ${styles.nodeBlue}`}>LN Engage</span>
-                <span className={styles.edge} />
-                <span className={`${styles.node} ${styles.nodeCyan}`}>LN Manage</span>
-              </div>
-              <div className={styles.nodeRow}>
-                <span className={`${styles.node} ${styles.nodeNavy}`}>LN One</span>
+                <span className={`${styles.node} ${styles.nodeBlue}`}>LN Manage</span>
                 <span className={styles.edge} />
                 <span className={`${styles.node} ${styles.nodeCyan}`}>More products</span>
               </div>

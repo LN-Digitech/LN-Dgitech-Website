@@ -19,7 +19,9 @@
 
   /* Semantic tokens */
   --color-background: #f8fafc;
+  --color-background-translucent: rgba(248, 250, 252, 0.86);
   --color-surface: #ffffff;
+  --color-surface-translucent: rgba(255, 255, 255, 0.86);
   --color-surface-raised: #ffffff;
   --color-text: #0b1220;
   --color-text-muted: #55627a;
@@ -136,15 +138,17 @@ html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 1rem);
+  background-color: var(--color-background);
 }
 
 body {
   min-height: 100dvh;
+  isolation: isolate;
   font-family: var(--font-body);
   font-size: var(--text-md);
   line-height: var(--leading-normal);
   color: var(--color-text);
-  background-color: var(--color-background);
+  background-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

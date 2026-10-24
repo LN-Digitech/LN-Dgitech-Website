@@ -9,7 +9,7 @@ import { businessSuite, products, productsHonestyNote } from "@/data/products";
 /**
  * Homepage products section.
  *
- * Introduces the BusinessOS portfolio and renders the three product
+ * Introduces the BusinessOS portfolio and renders the product
  * concepts from data/products.ts with honest, configurable statuses.
  */
 export function ProductsSection() {
